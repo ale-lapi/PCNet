@@ -70,7 +70,7 @@ PCNet/
     - [`test`](data/test): folder where you can find some files for testing the tool
 
 - [`docs`](docs)
-    - [`pcnet.pdf`](docs/pcnet.pdf): documentation of the package in .pdf
+    - [`index.html`](docs/index.html): documentation of the package
 
 - [`PCNet`](PCNet)
     - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produce the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
@@ -80,7 +80,7 @@ PCNet/
     - [`test_PCNet.py`](test_PCNet.py): python file containing all the test functions
 
  - [`examples`](examples)
-    - [`PCNet_notebook.ipynb`](tutorial/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
+    - [`PCNet_notebook.ipynb`](examples/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
 
  - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_network.py](PCNet/PCNet_network.py)
 
@@ -113,8 +113,8 @@ Finally you are ready to import PCNet and its modules.
 
 ## Data
 
-The website https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/ hosts a valuable collection of data available for download related to the PubMed database. 
-<!-- The dataset is provided in XML format and includes comprehensive bibliographic information, abstracts, author affiliations, and publication dates for scientific articles indexed in PubMed.  -->
+The [PubMed baseline website](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/)hosts a valuable collection of data available for download related to the PubMed database. 
+
 The data is freely accessible to researchers, scientists, and anyone interested in studying or analyzing PubMed literature. The dataset is regularly updated to ensure the inclusion of the latest publications. Please note that the usage of data may be subject to specific terms and licensing agreements, which can be found on this [link](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/README.txt).
 
 To use **PCNet** download the files with the *.gz* extention and put them in a folder (if you do not have any specific preferences put them in the [pubmed](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/data/pubmed) folder). 
@@ -128,7 +128,7 @@ In [docs](docs) you can find the documentation file where you can find details a
 
 In order to build citation networks with **PCNet** you can follow the next instructions.
 
-After [installation](#installation) and [data download](#data), there are two ways to use **PCNet** tool: using the [PCNet_network.py](PCNet/PCNet_network.py) python file or the [PCNet_notebook.ipynb](tutorial/PCNet_notebook.ipynb) notebook.
+After [installation](#installation) and [data download](#data), there are two ways to use **PCNet** tool: using the [PCNet_network.py](PCNet/PCNet_network.py) python file or the [PCNet_notebook.ipynb](examples/PCNet_notebook.ipynb) notebook.
 
 Python file:
 - Set the configuration in the [configuration.ini](configuration.ini):
@@ -162,11 +162,15 @@ Python file:
 
 - From the root directory move into the package directory ([PCNet](PCNet)):
 
-    ```cd PCNet```
+    ```
+    cd PCNet
+    ```
 
     Then run the main function of the module [PCNet_network.py](PCNet/PCNet_network.py):
 
-    ```python PCNet_network.py``` 
+    ```
+    python PCNet_network.py
+    ``` 
 
 Notebook:
 - You do not need any configuration file: each setting is chosen in the notebook.
@@ -188,4 +192,4 @@ The python test script can be found [here](test/test_PCNet.py).
 ## License
 
 
-This package is licensed under the [MIT "Expat" License](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/LICENSE). 
+This package is licensed under the [MIT License](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/LICENSE). 

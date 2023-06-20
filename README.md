@@ -1,6 +1,6 @@
 | **Author**  | **Project** | **License** |
 |:-----------:|:-----------:|:-----------:|
-| [**Alessandro Lapi**](https://github.com/ale-lapi) | **PubMed Citation Network** | [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/LICENSE)|
+| [**Alessandro Lapi**](https://github.com/ale-lapi) | **PubMed Citation Network** | [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ale-lapi/PCNet/tree/master/LICENSE)|
 
 
 # PCNet
@@ -86,7 +86,7 @@ PCNet/
 
  - [`requirements.txt`](requirements.txt): text file containing the list of necessary packages to run the tool
 
-- [`setup.py`](setup.py): 
+- [`setup.py`](setup.py): configuration python file for the installation of the package
 
 
 
@@ -109,11 +109,19 @@ Now you are ready to install the package:
 python -m setup.py develop --user
 ```
 
-Finally you are ready to import PCNet and its modules.
+PCNet was tested with the following version of the packages but probably it works also with previous versions (not tested):
+
+```
+pandas==1.5.3
+networkx==3.0
+tqdm==4.64.1
+configparser==5.3.0
+pytest==7.2.1
+```
 
 ## Data
 
-The [PubMed baseline website](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/)hosts a valuable collection of data available for download related to the PubMed database. 
+The [PubMed baseline website](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/) hosts a valuable collection of data available for download related to the PubMed database. 
 
 The data is freely accessible to researchers, scientists, and anyone interested in studying or analyzing PubMed literature. The dataset is regularly updated to ensure the inclusion of the latest publications. Please note that the usage of data may be subject to specific terms and licensing agreements, which can be found on this [link](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/README.txt).
 
@@ -192,4 +200,4 @@ The python test script can be found [here](test/test_PCNet.py).
 ## License
 
 
-This package is licensed under the [MIT License](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/LICENSE). 
+This package is licensed under the [MIT License](https://github.com/ale-lapi/PCNet/tree/master/LICENSE). 

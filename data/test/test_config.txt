@@ -1,0 +1,18 @@
+[path settings]
+pubmed_path = /data/test/test_pubmed_path/
+csv_path = /data/test/test_csv_path/
+graph_path = /data/test/test_graph_path/
+
+
+[mesh settings]
+mesh = D000328
+term_mesh = adult
+
+
+[informations settings]
+info = title, abstract, journal, keywords
+
+
+[graph settings]
+connected = False
+keep_unknown_nodes = True

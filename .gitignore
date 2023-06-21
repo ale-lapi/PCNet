@@ -1,6 +1,7 @@
 __pycache__
 docs/*
-!docs/index.html
+!docs/*.html
+!docs/_static
 pubmed*.xml.gz
 pubmed.gexf
 links_pubmed*.csv

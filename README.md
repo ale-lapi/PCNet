@@ -42,19 +42,19 @@ It is important to note that the analysis of the network necessitates an additio
 Repository structure:
 ```text
 PCNet/
+├──PCNet/
+|   ├──PCNet_network.py
+|   ├──PCNet_parser.py
+|   └──__init__.py
 ├──data/
 |   ├──csv/
 |   ├──graph/
 |   ├──pubmed/
 |   └──test/
 ├──docs/
-|   └──pcnet.pdf
+|   └──index.html
 ├──examples/
 |   └──PCNet_notebook.ipynb
-├──PCNet/
-|   ├──__init__.py
-|   ├──PCNet_network.py
-|   └──PCNet_parser.py
 ├──test/
 |   └──test_PCNet.py
 ├──configuration.ini
@@ -63,6 +63,10 @@ PCNet/
      
 ```
 
+- [`PCNet`](PCNet)
+    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produce the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
+    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contain all the functions needed to achieve the goal
+
  - [`data`](data)
     - [`csv`](data/csv): folder where csv files created after the parse are saved
     - [`graph`](data/graph): folder where the graph created through the tool is saved
@@ -70,11 +74,7 @@ PCNet/
     - [`test`](data/test): folder where you can find some files for testing the tool
 
 - [`docs`](docs)
-    - [`index.html`](docs/index.html): documentation of the package
-
-- [`PCNet`](PCNet)
-    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produce the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
-    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contain all the functions needed to achieve the goal
+    - [`index.html`](docs/index.html): documentation of the package. Open it from your cloned folder in order to read the documentation
 
  - [`test`](data/test)
     - [`test_PCNet.py`](test_PCNet.py): python file containing all the test functions
@@ -94,7 +94,7 @@ PCNet/
 
 ## Installation
 
-To install the tool clone the repository [PCNet](https://github.com/ale-lapi/Pubmed-Citation-Network) and use pip:
+To install the tool clone the repository [PCNet](https://github.com/ale-lapi/PCNet) and use pip:
 ```
 git clone https://github.com/ale-lapi/PCNet
 cd PCNet
@@ -109,7 +109,7 @@ Now you are ready to install the package:
 python -m setup.py develop --user
 ```
 
-PCNet was tested with the following version of the packages but probably it works also with previous versions (not tested):
+**PCNet** was tested with the following version of the packages but probably it works also with previous versions (not tested):
 
 ```
 pandas==1.5.3
@@ -125,7 +125,7 @@ The [PubMed baseline website](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/) hos
 
 The data is freely accessible to researchers, scientists, and anyone interested in studying or analyzing PubMed literature. The dataset is regularly updated to ensure the inclusion of the latest publications. Please note that the usage of data may be subject to specific terms and licensing agreements, which can be found on this [link](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/README.txt).
 
-To use **PCNet** download the files with the *.gz* extention and put them in a folder (if you do not have any specific preferences put them in the [pubmed](https://github.com/ale-lapi/Pubmed-Citation-Network/tree/master/data/pubmed) folder). 
+To use **PCNet** download the files with the *.gz* extention and put them in a folder (if you do not have any specific preferences put them in the [pubmed](https://github.com/ale-lapi/PCNet/tree/master/data/pubmed) folder). 
 
 MD5 files are used to check the integrity of the file after the process of download. In this case they are not necessary.
 

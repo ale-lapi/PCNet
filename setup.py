@@ -62,7 +62,7 @@ DESCRIPTION = 'PCNet is a tool for building a citation network from PubMed datab
 URL = 'https://github.com/ale-lapi/PCNet'
 EMAIL = 'alessandro.lapi@studio.unibo.it'
 AUTHOR = 'Alessandro Lapi'
-VERSION = '1.0.0'
+VERSION = '0.1.0'
 KEYWORDS = 'citation-network pubmed xml-parser'
 REQUIREMENTS_FILENAME = os.path.join(here, 'requirements.txt')
 README_FILENAME = os.path.join(here, 'README.md')
@@ -91,6 +91,5 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3',
     ],
-    python_requires='>=3.5',
     license = 'MIT'
 )

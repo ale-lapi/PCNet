@@ -12,10 +12,10 @@
 
 
 - [Overview](#overview)
-- [What's included](#whats-included)
 - [Installation](#installation)
 - [Data](#data)
 - [Usage](#usage)
+- [What's included](#whats-included)
 - [Testing](#testing)
 - [License](#license)
 
@@ -35,59 +35,6 @@ This graph represents the citation network of Covid-19 publications until Decemb
 Using the **PCNet**, researchers can effortlessly retrieve publication metadata, including article titles, abstracts, publication dates, authors, journal, keywords directly from PubMed. Once the desired publications are obtained from PubMed, the tool facilitates the construction of a citation network. It identifies the citations within the retrieved articles and establishes the corresponding connections between them. The resulting graph representation can be analysed using *networkx* functions or other softwares like *Gephi*, allowing researchers to gain a comprehensive understanding of the citation relationships and patterns within their field of interest.
 
 It is important to note that the analysis of the network necessitates an additional step, which is beyond the scope of this particular tool.
-
-
-## What's included
-
-Repository structure:
-```text
-PCNet/
-├──PCNet/
-|   ├──PCNet_network.py
-|   ├──PCNet_parser.py
-|   └──__init__.py
-├──data/
-|   ├──csv/
-|   ├──graph/
-|   ├──pubmed/
-|   └──test/
-├──docs/
-|   └──index.html
-├──examples/
-|   └──PCNet_notebook.ipynb
-├──test/
-|   └──test_PCNet.py
-├──configuration.ini
-├──requirements.txt
-└──setup.py
-     
-```
-
-- [`PCNet`](PCNet)
-    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produce the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
-    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contain all the functions needed to achieve the goal
-
- - [`data`](data)
-    - [`csv`](data/csv): folder where csv files created after the parse are saved
-    - [`graph`](data/graph): folder where the graph created through the tool is saved
-    - [`pubmed`](data/pubmed): folder where you should put data downloaded from the PubMed baselline as specified [here](#data)
-    - [`test`](data/test): folder where you can find some files for testing the tool
-
-- [`docs`](docs)
-    - [`index.html`](docs/index.html): documentation of the package. Open it from your cloned folder in order to read the documentation
-
- - [`test`](data/test)
-    - [`test_PCNet.py`](test_PCNet.py): python file containing all the test functions
-
- - [`examples`](examples)
-    - [`PCNet_notebook.ipynb`](examples/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
-
- - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_network.py](PCNet/PCNet_network.py)
-
- - [`requirements.txt`](requirements.txt): text file containing the list of necessary packages to run the tool
-
-- [`setup.py`](setup.py): configuration python file for the installation of the package
-
 
 
 
@@ -183,6 +130,60 @@ Python file:
 Notebook:
 - You do not need any configuration file: each setting is chosen in the notebook.
 - You can run single pieces of the code avoiding time consuming sections of the code you have already run. 
+
+
+
+## What's included
+
+Repository structure:
+```text
+PCNet/
+├──PCNet/
+|   ├──PCNet_network.py
+|   ├──PCNet_parser.py
+|   └──__init__.py
+├──data/
+|   ├──csv/
+|   ├──graph/
+|   ├──pubmed/
+|   └──test/
+├──docs/
+|   └──index.html
+├──examples/
+|   └──PCNet_notebook.ipynb
+├──test/
+|   └──test_PCNet.py
+├──configuration.ini
+├──requirements.txt
+└──setup.py
+     
+```
+
+- [`PCNet`](PCNet)
+    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produces the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
+    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contain all the functions needed to achieve the goal
+
+ - [`data`](data)
+    - [`csv`](data/csv): folder where csv files created after the parse are saved
+    - [`graph`](data/graph): folder where the graph created through the tool is saved
+    - [`pubmed`](data/pubmed): folder where you should put data downloaded from the PubMed baselline as specified [here](#data)
+    - [`test`](data/test): folder where you can find some files for testing the tool
+
+- [`docs`](docs)
+    - [`index.html`](docs/index.html): documentation of the package. Open it from your cloned folder in order to read the documentation
+
+ - [`test`](data/test)
+    - [`test_PCNet.py`](test/test_PCNet.py): python file containing all the test functions
+
+ - [`examples`](examples)
+    - [`PCNet_notebook.ipynb`](examples/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
+
+ - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_network.py](PCNet/PCNet_network.py)
+
+ - [`requirements.txt`](requirements.txt): text file containing the list of necessary packages to run the tool
+
+- [`setup.py`](setup.py): configuration python file for the installation of the package
+
 
 
 

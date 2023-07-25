@@ -115,16 +115,16 @@ Python file:
         If ```keep_unknown_nodes = True``` the graph will contain all the nodes, including those of which we know only the *PMID* and the *citations*.
 
 
-- From the root directory move into the package directory ([PCNet](PCNet)):
+- From the root directory move into the examples directory ([examples](examples)):
 
     ```
-    cd PCNet
+    cd examples
     ```
 
-    Then run the main function of the module [PCNet_network.py](PCNet/PCNet_network.py):
+    Then run the script [PCNet_main.py](examples/PCNet_main.py):
 
     ```
-    python PCNet_network.py
+    python PCNet_main.py
     ``` 
 
 Notebook:
@@ -150,6 +150,7 @@ PCNet/
 ├──docs/
 |   └──index.html
 ├──examples/
+|   ├──PCNet_main.py
 |   └──PCNet_notebook.ipynb
 ├──test/
 |   └──test_PCNet.py
@@ -160,8 +161,8 @@ PCNet/
 ```
 
 - [`PCNet`](PCNet)
-    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that produces the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
-    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contain all the functions needed to achieve the goal
+    - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that containes the function to create the graph
+    - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contains all the functions needed to parse the xml files from pubmed
 
  - [`data`](data)
     - [`csv`](data/csv): folder where csv files created after the parse are saved
@@ -176,6 +177,7 @@ PCNet/
     - [`test_PCNet.py`](test/test_PCNet.py): python file containing all the test functions
 
  - [`examples`](examples)
+    - [`PCNet_main.py`](examples/PCNet_main.py): python file that creates the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
     - [`PCNet_notebook.ipynb`](examples/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
 
  - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_network.py](PCNet/PCNet_network.py)

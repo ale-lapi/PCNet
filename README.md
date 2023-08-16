@@ -83,10 +83,10 @@ In [docs](docs) you can find the documentation file where you can find details a
 
 In order to build citation networks with **PCNet** you can follow the next instructions.
 
-After [installation](#installation) and [data download](#data), there are two ways to use **PCNet** tool: using the [PCNet_network.py](PCNet/PCNet_network.py) python file or the [PCNet_notebook.ipynb](examples/PCNet_notebook.ipynb) notebook.
+After [installation](#installation) and [data download](#data), there are two ways to use **PCNet** tool: using the [PCNet_main.py](PCNet/PCNet_main.py) python file or the [PCNet_notebook.ipynb](examples/PCNet_notebook.ipynb) notebook.
 
 Python file:
-- Set the configuration in the [configuration.ini](configuration.ini):
+- Set the configuration in a configuration file with the same structure of [configuration.ini](configuration.ini):
     - **mesh**: MeSH (Medical Subject Headings) is a controlled vocabulary used for indexing and organizing biomedical literature. To search for MeSH related to a certain topic, you can use the [MeSH Browser](https://meshb.nlm.nih.gov/search) provided by the National Library of Medicine (NLM).
 
         If ```mesh = ''``` the parse will be performed over all the articles;
@@ -115,17 +115,19 @@ Python file:
         If ```keep_unknown_nodes = True``` the graph will contain all the nodes, including those of which we know only the *PMID* and the *citations*.
 
 
-- From the root directory move into the examples directory ([examples](examples)):
+- From the root directory move into the [examples](examples) directory:
 
     ```
     cd examples
     ```
 
-    Then run the script [PCNet_main.py](examples/PCNet_main.py):
+    Then run the script [PCNet_main.py](examples/PCNet_main.py), specifying the *path_to_configuration_file*:
 
     ```
-    python PCNet_main.py
+    python PCNet_main.py --config_file path_to_configuration_file
     ``` 
+
+    If you run the file without specifying any path, by default it will be *../configuration.ini* following the [repository structure](#whats-included).
 
 Notebook:
 - You do not need any configuration file: each setting is chosen in the notebook.
@@ -180,7 +182,7 @@ PCNet/
     - [`PCNet_main.py`](examples/PCNet_main.py): python file that creates the graph according to the settings specified in [configuration.ini](configuration.ini). The graph will be saved in the [graph](data/graph) folder
     - [`PCNet_notebook.ipynb`](examples/PCNet_notebook.ipynb): notebook in which you can run the code piece by piece for a faster an and customizable implementation
 
- - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_network.py](PCNet/PCNet_network.py)
+ - [`configuration.ini`](configuration.ini): text file where you have to specify your setting preferences before running [PCNet_main.py](PCNet/PCNet_main.py)
 
  - [`requirements.txt`](requirements.txt): text file containing the list of necessary packages to run the tool
 

@@ -8,3 +8,4 @@ links_pubmed*.csv
 nodes_pubmed*.csv
 .pytest_cache/*
 .coverage
+test_configuration.ini

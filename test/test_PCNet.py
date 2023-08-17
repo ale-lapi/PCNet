@@ -419,7 +419,9 @@ def test_nodes_to_df():
     It also checks if the first column is 'pmid'.
     """
     info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    df_nodes_graph = pcn.nodes_to_df(path_test + 'test.gexf')
+    
+    G = nx.read_gexf(path_test + 'test.gexf')
+    df_nodes_graph = pcn.nodes_to_df(G)
 
     assert type(df_nodes_graph) == pd.core.frame.DataFrame
     assert df_nodes_graph.shape[1] == 2 + len(info)
@@ -434,7 +436,8 @@ def test_links_to_df():
     It checks if the links_to_df function creates a pandas dataframe of the right shape.
     It also checks if the first column is 'source' and the second column is 'target'.
     """
-    df_links_graph = pcn.links_to_df(path_test + 'test.gexf')
+    G = nx.read_gexf(path_test + 'test.gexf')
+    df_links_graph = pcn.links_to_df(G)
 
     assert type(df_links_graph) == pd.core.frame.DataFrame
     assert df_links_graph.shape[1] == 2

@@ -188,14 +188,14 @@ def is_empty_csv(csv_file):
     return True
 
 
-def nodes_to_df(path):
+def nodes_to_df(G):
     """
     Return a dataframe of nodes from the attributes of the input .gexf graph  
 
     Parameters
     ----------
-    path : str
-        Path of the .gexf graph
+    G : networkx graph
+        Graph from which extract the nodes
 
     Returns
     -------
@@ -203,8 +203,6 @@ def nodes_to_df(path):
         Dataframe of nodes 
     """
     nodes = []
-
-    G = nx.read_gexf(path)
 
     for node in G.nodes(data=True):
         nodes.append(node[1])
@@ -219,14 +217,14 @@ def nodes_to_df(path):
 
     return df
 
-def links_to_df(path):
+def links_to_df(G):
     """
     Return a dataframe of links from the edges of the input .gexf graph.
 
     Parameters
     ----------
-    path : str
-        Path of the .gexf graph 
+    G : networkx graph
+        Graph from which extract the links
 
     Returns
     -------
@@ -234,8 +232,6 @@ def links_to_df(path):
         Dataframe of links
     """
     edges = []
-    
-    G = nx.read_gexf(path)
 
     for edge in G.edges(data=True):
         edges.append(edge)

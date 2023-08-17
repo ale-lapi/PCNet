@@ -330,121 +330,78 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
     None
     """
     
+    def get_info(node, net_nodes, net_links, informations):
+        """
+        Get the information from the xml file.
+        """
+        # Extract the pmid
+        pmid = get_pmid(node)
+        net_nodes.write(f"{pmid}\t")
+
+        # If the pmid is not in the correct format, we skip the article
+        if pmid != 0:
+            
+
+            # Extract the informations selected
+            if 'title' in informations:
+                title = get_title(node)
+                net_nodes.write(f"{title} \t")
+            
+            if 'abstract' in informations:
+                abstract = get_abstract(node)
+                net_nodes.write(f"{abstract} \t")
+            
+            if 'date' in informations:
+                date = get_publication_date(node)
+                net_nodes.write(f"{date}\t")
+            
+            if 'authors' in informations:
+                authors = get_authors(node)
+                net_nodes.write(f"{authors} \t")
+            
+            if 'journal' in informations:
+                journal = get_journal(node)
+                net_nodes.write(f"{journal} \t")
+            
+            if 'keywords' in informations:
+                keywords = get_keywords(node)
+                net_nodes.write(f"{keywords}\t")
+
+            # Extract the references
+            references = get_references(node)
+            net_nodes.write(f"{references}")
+
+            net_nodes.write("\n")
+
+            # Write the links in the links csv file 
+            if references != "":
+            
+                for ref in references.split(', '): 
+                    net_links.write(f"{pmid}\t{ref}\n")
+
+
+
     for file in tqdm([file for file in os.listdir(path_xml) if file.endswith('.gz')], desc='- Processing xml files ...'):
         
         # Unzip the xml.gz file and parse it
         xml_file = GzipFile(path_xml + file, 'r')
         parse_file = ET.parse(xml_file)
 
-        if MeSH == "":
-
-            # Create 2 csv files for the links and the nodes
-            with open(path_csv + "links_" + file + ".csv", "w", encoding='utf-8') as net_links:
-                with open(path_csv + "nodes_" + file + ".csv", "w", encoding='utf-8') as net_nodes:
-                    
-                    # Loop over the nodes of the xml file, i.e. the articles
-                    for node in parse_file.getroot().iter('PubmedArticle'):
+        # Create 2 csv files for the links and the nodes
+        with open(path_csv + "links_" + file + ".csv", "w", encoding='utf-8') as net_links:
+            with open(path_csv + "nodes_" + file + ".csv", "w", encoding='utf-8') as net_nodes:
                 
-                        # Extract the pmid
-                        pmid = get_pmid(node)
-                        net_nodes.write(f"{pmid}\t")
+                # Loop over the nodes of the xml file, i.e. the articles
+                for node in parse_file.getroot().iter('PubmedArticle'):
 
-                        # If the pmid is not in the correct format, we skip the article
-                        if pmid == 0:
-                            continue
-                        
-                        # Extract the informations selected by the user
-                        if 'title' in informations:
-                            title = get_title(node)
-                            net_nodes.write(f"{title} \t")
-                        
-                        if 'abstract' in informations:
-                            abstract = get_abstract(node)
-                            net_nodes.write(f"{abstract} \t")
-                        
-                        if 'date' in informations:
-                            date = get_publication_date(node)
-                            net_nodes.write(f"{date}\t")
-                        
-                        if 'authors' in informations:
-                            authors = get_authors(node)
-                            net_nodes.write(f"{authors} \t")
-                        
-                        if 'journal' in informations:
-                            journal = get_journal(node)
-                            net_nodes.write(f"{journal} \t")
-                        
-                        if 'keywords' in informations:
-                            keywords = get_keywords(node)
-                            net_nodes.write(f"{keywords}\t")
-
-                        # Extract the references
-                        references = get_references(node)
-                        net_nodes.write(f"{references}")
-
-                        net_nodes.write("\n")
-
-                        # Write the links in the links csv file
-                        if references != "":
-                        
-                            for ref in references.split(', '): 
-                                net_links.write(f"{pmid}\t{ref}\n")
-
-        else:
-            
-            # Create 2 csv files for the links and the nodes
-            with open(path_csv + "links_" + file + ".csv", "w", encoding='utf-8') as net_links:
-                with open(path_csv + "nodes_" + file + ".csv", "w", encoding='utf-8') as net_nodes:
-                    
-                    # Loop over the nodes of the xml file, i.e. the articles
-                    for node in parse_file.getroot().iter('PubmedArticle'):
+                    if MeSH != "":
 
                         # Apply the MeSH filter selected
                         for child in node.iter('DescriptorName'):
                             if child.attrib['UI'] == MeSH:
-                
-                                # Extract the pmid
-                                pmid = get_pmid(node)
-                                net_nodes.write(f"{pmid}\t")
+                                get_info(node, net_nodes, net_links, informations)
 
-                                # If the pmid is not in the correct format, we skip the article
-                                if pmid == 0:
-                                    continue
+                    else:
+                        get_info(node, net_nodes, net_links, informations)
 
-                                # Extract the informations selected
-                                if 'title' in informations:
-                                    title = get_title(node)
-                                    net_nodes.write(f"{title} \t")
-                                
-                                if 'abstract' in informations:
-                                    abstract = get_abstract(node)
-                                    net_nodes.write(f"{abstract} \t")
-                                
-                                if 'date' in informations:
-                                    date = get_publication_date(node)
-                                    net_nodes.write(f"{date}\t")
-                                
-                                if 'authors' in informations:
-                                    authors = get_authors(node)
-                                    net_nodes.write(f"{authors} \t")
-                                
-                                if 'journal' in informations:
-                                    journal = get_journal(node)
-                                    net_nodes.write(f"{journal} \t")
-                                
-                                if 'keywords' in informations:
-                                    keywords = get_keywords(node)
-                                    net_nodes.write(f"{keywords}\t")
-
-                                # Extract the references
-                                references = get_references(node)
-                                net_nodes.write(f"{references}")
-
-                                net_nodes.write("\n")
-        
-                                # Write the links in the links csv file 
-                                if references != "":
-                                
-                                    for ref in references.split(', '): 
-                                        net_links.write(f"{pmid}\t{ref}\n")
-
+                    

@@ -112,29 +112,30 @@ def get_publication_date(node):
     date : str
         Publication date of the article corresponding to the node
     """
+    def get_date(child):
+        """
+        Get the date from the child node
+        """
+        year = child.find('Year').text
+        month = child.find('Month').text
+        day = child.find('Day').text
+        date = year + '-' + month + '-' + day
+        return date
+
     date = ""
 
     # Get the date of the publication. It is extracted according to the availability,
     # following this priority: electronic, revised, accepted.
     for child in node.iter('PubMedPubDate'):
         if child.attrib['PubStatus'] == 'accepted':
-            year = child.find('Year').text
-            month = child.find('Month').text
-            day = child.find('Day').text
-            date = year + '-' + month + '-' + day
+            date = get_date(child)
     
     for child in node.iter('DateRevised'):
-        year = child.find('Year').text
-        month = child.find('Month').text
-        day = child.find('Day').text
-        date = year + '-' + month + '-' + day
+        date = get_date(child)
 
     for child in node.iter('ArticleDate'):
         if child.attrib['DateType'] == 'Electronic':
-            year = child.find('Year').text
-            month = child.find('Month').text
-            day = child.find('Day').text
-            date = year + '-' + month + '-' + day
+            date = get_date(child)
 
     return date
 

@@ -31,12 +31,10 @@ def get_pmid(node):
 
     if pmid is not None:
         pmid = int(pmid)
-    else:
-        pmid = 0
     
-    # Set pmid to 0 if it is not in the correct format to exclude the article from the parse
-    if pmid < pmid_min or pmid > pmid_max:
-        pmid = 0     
+        # Set pmid to 0 if it is not in the correct format to exclude the article from the parse
+        if pmid < pmid_min or pmid > pmid_max:
+            pmid = None     
 
     return pmid
 
@@ -340,9 +338,8 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
         net_nodes.write(f"{pmid}\t")
 
         # If the pmid is not in the correct format, we skip the article
-        if pmid != 0:
+        if pmid is not None:
             
-
             # Extract the informations selected
             if 'title' in informations:
                 title = get_title(node)

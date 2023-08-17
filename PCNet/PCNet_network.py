@@ -58,19 +58,23 @@ def csv_to_dataframe(path_csv, type_of_df, columns=['title',
         df = pd.read_csv(path_csv + file, sep='\t', header=None, quoting=csv.QUOTE_NONE)
         l.append(df)
 
-    if len(l) != 0:
-        df = pd.concat(l, axis=0, ignore_index=True)
-
-        # Rename the columns of the dataframe according to the type of dataframe
-        if type_of_df == 'links':
-            df.columns = ['source', 'target']
-        else:
-            df.columns = ['pmid'] + columns + ['references']
-            df = df.fillna('') # Replace NaN values by empty strings
-        return df
-    
-    else:
+    if len(l) == 0:
+        print('Error: no articles found with these settings.')
         return None
+    
+    df = pd.concat(l, axis=0, ignore_index=True)
+
+    # Rename the columns of the dataframe according to the type of dataframe
+    if type_of_df == 'links':
+        df.columns = ['source', 'target']
+    elif type_of_df == 'nodes':
+        df.columns = ['pmid'] + columns + ['references']
+        df = df.fillna('') # Replace NaN values by empty strings
+    else:
+        print("Error: type_of_df must be 'links' or 'nodes'")
+        return None
+    return df
+
 
 def df_to_graph(df_links, df_nodes, connected_graph=True, unknown_nodes=False):
     """

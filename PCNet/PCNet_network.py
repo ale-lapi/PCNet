@@ -76,6 +76,54 @@ def csv_to_dataframe(path_csv, type_of_df, columns=['title',
     return df
 
 
+def connect_graph(G):
+    """
+    Return a connected graph from the input graph.
+    The input graph must be a directed graph.
+    The connected graph is the largest connected component of the input graph.
+
+    Parameters
+    ----------
+    G : networkx graph
+        Graph to connect
+
+    Returns
+    -------
+    G : networkx graph
+        Connected graph  
+    """
+
+    G = G.subgraph(max(nx.weakly_connected_components(G), key=len))
+
+    return G
+
+def add_attributes(G, df_nodes):
+    """
+    Add the attributes to the nodes of the graph.
+    The attributes are the informations extracted with the parse_xml function.
+
+    Parameters
+    ----------
+    G : networkx graph
+        Graph to which add the attributes
+    df_nodes : pandas dataframe
+        Dataframe with the nodes
+
+    Returns
+    -------
+    G : networkx graph
+        Graph with the attributes added to the nodes
+    """
+
+    # Add the attributes to the nodes
+    for index, row in df_nodes.iterrows():
+        if row['pmid'] in G.nodes:
+            for col in df_nodes.columns:
+                if col != 'pmid':
+                    G.nodes[row['pmid']].update({col: row[col]})
+
+    return G
+
 def df_to_graph(df_links, df_nodes, connected_graph=True, unknown_nodes=False):
     """
     Create a graph from the links and the nodes dataframes.
@@ -106,19 +154,16 @@ def df_to_graph(df_links, df_nodes, connected_graph=True, unknown_nodes=False):
     G.remove_edges_from(nx.selfloop_edges(G))
 
     if connected_graph == True:
-        G = G.subgraph(max(nx.weakly_connected_components(G), key=len))
+        G = connect_graph(G)
 
     nodes = list(G.nodes())
     df_nodes = df_nodes[df_nodes['pmid'].isin(nodes)]
 
     # Add the attributes to the nodes
-    for index, row in df_nodes.iterrows():
-        if row['pmid'] in G.nodes:
-            for col in df_nodes.columns:
-                if col != 'pmid':
-                    G.nodes[row['pmid']].update({col: row[col]})
+    G = add_attributes(G, df_nodes)
 
     return G
+
 
 def is_empty_csv(csv_file):
     """

@@ -10,6 +10,39 @@ __author__ = "Alessandro Lapi"
 __email__ = "alessandro.lapi@studio.unibo.it"
 
 
+
+def sanitize_text(text):
+    """
+    Sanitize the text from the xml file to avoid problems with the csv file
+
+    Parameters
+    ----------
+    text : str
+        Text to sanitize
+
+    Returns
+    -------
+    text : str
+        Sanitized text
+    """
+    # clean the text from the brackets and the newlines and tabs to avoid problems with the csv file
+    text = text.replace('[','')
+    text = text.replace(']','')
+    text = text.replace('\n',' ')
+    text = text.replace('\t',' ')
+    text = text.replace('  ',' ')
+    text = text.replace('&lt;b&gt;',' ')
+    text = text.replace('&lt;/b&gt;',' ')
+    text = text.replace('&lt;br&gt;',' ')
+    text = text.replace('&lt;sup&gt;',' ')
+    text = text.replace('&quot;',' ')
+    text = text.replace('&lt;/sup&gt;',' ')
+    text = text.replace('&lt;/br&gt;&lt;/br&gt;',' ')
+
+
+    return text
+
+
 def get_pmid(node):
     """
     While parsing the xml file, return the pmid of the article corresponding to the node
@@ -55,11 +88,7 @@ def get_title(node):
     for child in node.iter('ArticleTitle'):
         title = "".join(child.itertext())
 
-        # clean the title from the brackets and the newlines and tabs to avoid problems with the csv file
-        title = title.replace('[','')
-        title = title.replace(']','')
-        title = title.replace('\n',' ')
-        title = title.replace('\t',' ')
+        title = sanitize_text(title)
 
     return title
     
@@ -81,19 +110,9 @@ def get_abstract(node):
 
     for child in node.iter('Abstract'):
         if child.text is not None:
-            # clean the abstract from special characters and the newlines and tabs to avoid problems with the csv file
             abstract = "".join(child.itertext())
-            abstract = abstract.replace('\n',' ')
-            abstract = abstract.replace('\t',' ')  
-            abstract = abstract.replace('  ',' ')
-            abstract = abstract.replace('&lt;b&gt;',' ')
-            abstract = abstract.replace('&lt;/b&gt;',' ')
-            abstract = abstract.replace('&lt;br&gt;',' ')
-            abstract = abstract.replace('&lt;sup&gt;',' ')
-            abstract = abstract.replace('&quot;',' ')
-            abstract = abstract.replace('&lt;/sup&gt;',' ')
-            abstract = abstract.replace('&lt;/br&gt;&lt;/br&gt;',' ')
 
+            abstract = sanitize_text(abstract)
     return abstract
 
 def get_publication_date(node):
@@ -174,9 +193,8 @@ def get_authors(node):
     if len(authors) > 0:
         authors[-1] = authors[-1][:-2]
         authors = ''.join(authors)
-        authors = authors.replace('\n',' ')
-        authors = authors.replace('\t',' ')
-        authors = authors.replace('  ',' ')
+        
+        authors = sanitize_text(authors)
     else:
         authors = ""
 
@@ -198,9 +216,8 @@ def get_journal(node):
     """
     journal = node.find("./MedlineCitation/Article/Journal/Title").text
 
-    # clean the journal from newlines and tabs to avoid problems with the csv file
-    journal = journal.replace('\n',' ')
-    journal = journal.replace('\t',' ')
+    journal = sanitize_text(journal)
+
     return journal
 
 def get_keywords(node):
@@ -225,9 +242,7 @@ def get_keywords(node):
             key = child.text
 
             # clean the keywords from newlines and tabs to avoid problems with the csv file
-            key = key.replace('\n',' ')
-            key = key.replace('\t',' ')
-            key = key.replace('  ',' ')
+            key = sanitize_text(key)
             keywords.append(key + ', ')
 
     # get the keywords from the MeSH tag
@@ -235,9 +250,7 @@ def get_keywords(node):
         key = child.text
 
         # clean the keywords from newlines and tabs to avoid problems with the csv file
-        key = key.replace('\n',' ')
-        key = key.replace('\t',' ')
-        key = key.replace('  ',' ')
+        key = sanitize_text(key)
         keywords.append(key + ', ')
 
     if len(keywords) > 0:

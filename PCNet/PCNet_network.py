@@ -8,6 +8,7 @@ import networkx as nx
 import csv
 import configparser
 from PCNet import PCNet_parser as pp
+from PCNet import PCNet_utils as utils
 
 __author__ = "Alessandro Lapi"
 __email__ = "alessandro.lapi@studio.unibo.it"
@@ -51,7 +52,7 @@ def csv_to_dataframe(path_csv, type_of_df, columns=['title',
     for file in tqdm(csv_files, desc='- Processing csv files ...'):
 
         # Skip the file if it is empty
-        if is_empty_csv(path_csv + file) == True:
+        if utils.is_empty_csv(path_csv + file) == True:
             print(f"{file}  is empty")
             continue
 
@@ -163,29 +164,6 @@ def df_to_graph(df_links, df_nodes, connected_graph=True, unknown_nodes=False):
     G = add_attributes(G, df_nodes)
 
     return G
-
-
-def is_empty_csv(csv_file):
-    """
-    Check if a csv file is empty
-    
-    Parameters
-    ----------
-    csv_file : str
-        Path to the csv file
-        
-    Returns
-    -------
-    boolean
-        True if the csv is empty, False otherwise
-    """
- 
-    with open(csv_file, 'r', encoding='utf-8') as file:
-        csv_reader = csv.reader(file)
-        for row in csv_reader:
-            if row:  
-                return False
-    return True
 
 
 def nodes_to_df(G):

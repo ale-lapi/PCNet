@@ -354,8 +354,8 @@ def test_is_empty_csv():
     """
     Test the is_empty_csv function.
     """
-    assert pcn.is_empty_csv(path_test + 'test_empty.csv') == True
-    assert pcn.is_empty_csv(path_test + 'test_not_empty.csv') == False
+    assert utils.is_empty_csv(path_test + 'test_empty.csv') == True
+    assert utils.is_empty_csv(path_test + 'test_not_empty.csv') == False
 
 
 def test_df_to_graph():

@@ -143,6 +143,7 @@ PCNet/
 ├──PCNet/
 |   ├──PCNet_network.py
 |   ├──PCNet_parser.py
+|   ├──PCNet_utils.py
 |   └──__init__.py
 ├──data/
 |   ├──csv/
@@ -165,6 +166,7 @@ PCNet/
 - [`PCNet`](PCNet)
     - [`PCNet_network.py`](PCNet/PCNet_network.py): python file that containes the function to create the graph
     - [`PCNet_parser.py`](PCNet/PCNet_parser.py): python file which contains all the functions needed to parse the xml files from pubmed
+    - [`PCNet_utils.py`](PCNet/PCNet_utils.py): python file which contains few extra functions
 
  - [`data`](data)
     - [`csv`](data/csv): folder where csv files created after the parse are saved

@@ -7,7 +7,7 @@ import pandas as pd
 import networkx as nx
 from PCNet import PCNet_parser as pp
 from PCNet import PCNet_network as pcn
-from datetime import datetime
+from PCNet import PCNet_utils as utils
 from gzip import GzipFile
 
 __author__ = "Alessandro Lapi"
@@ -62,25 +62,19 @@ def test_get_abstract():
         assert '\n' not in pp.get_abstract(node)
         assert '\t' not in pp.get_abstract(node)
 
-def validate_date(date_string):
+def test_validate_date():
     """
-    Validate that a date string is in the expected format. 
-
-    Parameters
-    ----------
-    date_string : str
-        The date string to validate.
-
-    Returns
-    -------
-    bool
-        True if the date string is in the expected format, False otherwise.
+    Test the validate_date function.
+    It checks if the date is in the right format.
     """
-    try:
-        datetime.strptime(date_string, expected_format="%Y-%m-%d")
-        return True
-    except ValueError:
-        return False
+    correct_date = str('2020-01-01')
+    wrong_date = str('2020-01-32')
+    unordered_date = str('01-01-2020')
+    wrong_format = str('2020 january 01')
+    assert utils.validate_date(correct_date) == True
+    assert utils.validate_date(wrong_date) == False
+    assert utils.validate_date(unordered_date) == False
+    assert utils.validate_date(wrong_format) == False
 
 def test_get_publication_date():
     """
@@ -95,7 +89,7 @@ def test_get_publication_date():
         assert type(pp.get_publication_date(node)) == str
         assert '\n' not in pp.get_publication_date(node)
         assert '\t' not in pp.get_publication_date(node)
-        assert validate_date(pp.get_publication_date(node), "%Y-%m-%d") == True
+        assert utils.validate_date(pp.get_publication_date(node), "%Y-%m-%d") == True
 
 def test_get_authors():
     """

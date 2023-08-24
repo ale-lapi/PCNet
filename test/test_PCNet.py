@@ -8,6 +8,8 @@ import networkx as nx
 from PCNet import PCNet_parser as pp
 from PCNet import PCNet_network as pcn
 from PCNet import PCNet_utils as utils
+import pytest
+from gzip import GzipFile
 import csv
 
 __author__ = "Alessandro Lapi"
@@ -23,15 +25,20 @@ path_test = '../data/test/'
 mesh = 'D004724'
 mesh_word = 'endoscopy'
 
+@pytest.fixture
+def parse_file():
+    """
+    Parse the test xml file.
+    """
+    xml_file = GzipFile(path_test + "test.xml.gz", 'r')
+    parse_file = ET.parse(xml_file)
+    return parse_file
 
-def test_get_pmid():
+def test_get_pmid(parse_file):
     """
     Test the get_pmid function.
     It checks if the pmid is an integer and if it has the right length.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
-
     min_pmid, max_pmid = 100000, 100000000
 
     for node in parse_file.getroot().iter('PubmedArticle'):
@@ -42,13 +49,11 @@ def test_get_pmid():
     assert pp.get_pmid(parse_file.getroot()[0]) == None    
     assert pp.get_pmid(parse_file.getroot()[1]) == 36464820
 
-def test_get_title():
+def test_get_title(parse_file):
     """
     Test the get_title function.
     It checks if the title is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_title(node)) == str 
         assert '\n' not in pp.get_title(node)
@@ -57,13 +62,11 @@ def test_get_title():
     assert pp.get_title(parse_file.getroot()[3]) == '' 
     assert pp.get_title(parse_file.getroot()[2]) == 'Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.'
 
-def test_get_abstract():
+def test_get_abstract(parse_file):
     """
     Test the get_abstract function.
     It checks if the abstract is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_abstract(node)) == str
         assert '\n' not in pp.get_abstract(node)
@@ -86,13 +89,11 @@ def test_validate_date():
     assert utils.validate_date(unordered_date) == False
     assert utils.validate_date(wrong_format) == False
 
-def test_get_publication_date():
+def test_get_publication_date(parse_file):
     """
     Test the get_publication_date function. 
     It checks if the date is a string, if it does not contain '\n' or '\t' and if it is in the right format.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         if pp.get_publication_date(node) != '':
             continue
@@ -103,13 +104,11 @@ def test_get_publication_date():
 
     assert pp.get_publication_date(parse_file.getroot()[1]) == '2022-10-05'
 
-def test_get_authors():
+def test_get_authors(parse_file):
     """
     Test the get_authors function.
     It checks if the authors is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_authors(node)) == str
         assert '\n' not in pp.get_authors(node)
@@ -118,13 +117,11 @@ def test_get_authors():
     assert pp.get_authors(parse_file.getroot()[2]) == 'Muhammad Haseeb, Christopher C Thompson'
     assert pp.get_authors(parse_file.getroot()[6]) == ''
 
-def test_get_journal():
+def test_get_journal(parse_file):
     """
     Test the get_journal function.
     It checks if the journal is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_journal(node)) == str
         assert '\n' not in pp.get_journal(node)
@@ -132,13 +129,11 @@ def test_get_journal():
 
     assert pp.get_journal(parse_file.getroot()[2]) == 'Clinical endoscopy'
 
-def test_get_keywords():
+def test_get_keywords(parse_file):
     """
     Test the get_keywords function.
     It checks if the keywords is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_keywords(node)) == str
         assert '\n' not in pp.get_keywords(node)
@@ -147,13 +142,11 @@ def test_get_keywords():
     assert pp.get_keywords(parse_file.getroot()[6]) == 'endoscopic submucosal dissection, endoscopy, stomach neoplasms'
     assert pp.get_keywords(parse_file.getroot()[2]) == ''
 
-def test_get_references():
+def test_get_references(parse_file):
     """
     Test the get_references function.
     It checks if the references is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = path_test + "test.xml"
-    parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_references(node)) == str
         assert '\n' not in pp.get_references(node)

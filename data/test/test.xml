@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE PubmedArticleSet SYSTEM "http://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_230101.dtd">
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Endoscopic ultrasound-directed transgastric endoscopic retrograde cholangiopancreatography for patients with Roux-en-Y gastric bypass anatomy: technical overview.</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>736-741</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.114</ELocationID>
+        <Abstract>
+          <AbstractText>Endoscopic retrograde cholangiopancreatography (ERCP) in patients with Roux-en-Y gastric bypass anatomy is a well-documented challenge. Traditionally, this problem has been overcome with adjunctive techniques, such as device-assisted ERCP, including double-balloon or single-balloon enteroscopy and laparoscopy-assisted transgastric ERCP. Endoscopic ultrasound-directed transgastric ERCP (EDGE) is a novel technique that enables access to the ampulla using a duodenoscope without surgical intervention and has shown high clinical and technical success rates in recent studies. However, this approach is technically demanding, necessitating a thorough understanding of the gastrointestinal anatomy as well as high operator experience. In this review, we provide a technical overview of EDGE in parallel with our personal experience at our center and propose a simple algorithm to select patients for its appropriate application. In conjunction, the outcomes of EDGE compared with those of device-assisted and laparoscopy-assisted transgastric ERCP will be discussed.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Honda</LastName>
+            <ForeName>Hirokazu</ForeName>
+            <Initials>H</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Mosko</LastName>
+            <ForeName>Jeffrey D</ForeName>
+            <Initials>JD</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kobayashi</LastName>
+            <ForeName>Ryosuke</ForeName>
+            <Initials>R</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Fecso</LastName>
+            <ForeName>Andras</ForeName>
+            <Initials>A</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kim</LastName>
+            <ForeName>Bong Sik</ForeName>
+            <Initials>BS</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Scott</LastName>
+            <ForeName>Schoeman</ForeName>
+            <Initials>S</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>May</LastName>
+            <ForeName>Gary R</ForeName>
+            <Initials>GR</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D016454">Review</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>05</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <KeywordList Owner="NOTNLM">
+        <Keyword MajorTopicYN="N">Endoscopic retrograde cholangiopancreatography</Keyword>
+        <Keyword MajorTopicYN="N">Endoscopic ultrasound-directed transgastric endoscopic retrograde cholangiopancreatography</Keyword>
+        <Keyword MajorTopicYN="N">Gastric bypass</Keyword>
+      </KeywordList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>03</Month>
+          <Day>28</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>05</Month>
+          <Day>06</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464</ArticleId>
+        <ArticleId IdType="pii">ce.2022.114</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.114</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464820</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Endoscopic ultrasound-directed transgastric endoscopic retrograde cholangiopancreatography for patients with Roux-en-Y gastric bypass anatomy: technical overview.</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>736-741</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.114</ELocationID>
+        <Abstract>
+          <AbstractText>Endoscopic retrograde cholangiopancreatography (ERCP) in patients with Roux-en-Y gastric bypass anatomy is a well-documented challenge. Traditionally, this problem has been overcome with adjunctive techniques, such as device-assisted ERCP, including double-balloon or single-balloon enteroscopy and laparoscopy-assisted transgastric ERCP. Endoscopic ultrasound-directed transgastric ERCP (EDGE) is a novel technique that enables access to the ampulla using a duodenoscope without surgical intervention and has shown high clinical and technical success rates in recent studies. However, this approach is technically demanding, necessitating a thorough understanding of the gastrointestinal anatomy as well as high operator experience. In this review, we provide a technical overview of EDGE in parallel with our personal experience at our center and propose a simple algorithm to select patients for its appropriate application. In conjunction, the outcomes of EDGE compared with those of device-assisted and laparoscopy-assisted transgastric ERCP will be discussed.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Honda</LastName>
+            <ForeName>Hirokazu</ForeName>
+            <Initials>H</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Mosko</LastName>
+            <ForeName>Jeffrey D</ForeName>
+            <Initials>JD</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kobayashi</LastName>
+            <ForeName>Ryosuke</ForeName>
+            <Initials>R</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Fecso</LastName>
+            <ForeName>Andras</ForeName>
+            <Initials>A</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kim</LastName>
+            <ForeName>Bong Sik</ForeName>
+            <Initials>BS</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Scott</LastName>
+            <ForeName>Schoeman</ForeName>
+            <Initials>S</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>May</LastName>
+            <ForeName>Gary R</ForeName>
+            <Initials>GR</Initials>
+            <AffiliationInfo>
+              <Affiliation>The Centre for Therapeutic Endoscopy and Endoscopic Oncology and Division of Gastroenterology, St. Michael's Hospital, University of Toronto, Toronto, ON, Canada.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D016454">Review</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>05</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <KeywordList Owner="NOTNLM">
+        <Keyword MajorTopicYN="N">Endoscopic retrograde cholangiopancreatography</Keyword>
+        <Keyword MajorTopicYN="N">Endoscopic ultrasound-directed transgastric endoscopic retrograde cholangiopancreatography</Keyword>
+        <Keyword MajorTopicYN="N">Gastric bypass</Keyword>
+      </KeywordList>
+      <MeshHeadingList>
+        <MeshHeading>
+          <DescriptorName UI="D000069916" MajorTopicYN="N">Endoscopic submucosal dissection</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D004724" MajorTopicYN="Y">Endoscopy</DescriptorName>
+        </MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>03</Month>
+          <Day>28</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>05</Month>
+          <Day>06</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464820</ArticleId>
+        <ArticleId IdType="pii">ce.2022.114</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.114</ArticleId>
+      </ArticleIdList>
+      <ReferenceList>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464821</ArticleId>
+          </ArticleIdList>
+        </Reference>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464824</ArticleId>
+          </ArticleIdList>
+        </Reference>
+      </ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464821</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>751-752</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.280</ELocationID>
+        <Abstract>
+          <AbstractText>Abstract for testing.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Haseeb</LastName>
+            <ForeName>Muhammad</ForeName>
+            <Initials>M</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital, Boston, MA, USA.</Affiliation>
+            </AffiliationInfo>
+            <AffiliationInfo>
+              <Affiliation>Harvard Medical School, Boston, MA, USA.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Thompson</LastName>
+            <ForeName>Christopher C</ForeName>
+            <Initials>CC</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital, Boston, MA, USA.</Affiliation>
+            </AffiliationInfo>
+            <AffiliationInfo>
+              <Affiliation>Harvard Medical School, Boston, MA, USA.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016421">Editorial</PublicationType>
+          <PublicationType UI="D016420">Comment</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>08</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="CommentOn">
+          <RefSource>Clin Endosc. 2022 Sep;55(5):630-636</RefSource>
+          <PMID Version="1">35974471</PMID>
+        </CommentsCorrections>
+      </CommentsCorrectionsList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>08</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>21</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464821</ArticleId>
+        <ArticleId IdType="pii">ce.2022.280</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.280</ArticleId>
+      </ArticleIdList>
+      <ReferenceList>
+       <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464824</ArticleId>
+          </ArticleIdList>
+        </Reference>
+      </ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464822</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>11</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle/>
+        <Pagination>
+          <MedlinePgn>753-754</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.266</ELocationID>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Lee</LastName>
+            <ForeName>Seung Woo</ForeName>
+            <Initials>SW</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, College of Medicine, The Catholic University of Korea, Seoul, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016421">Editorial</PublicationType>
+          <PublicationType UI="D016420">Comment</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>16</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="CommentOn">
+          <RefSource>Clin Endosc. 2022 Nov;55(6):760-766</RefSource>
+          <PMID Version="1">36464825</PMID>
+        </CommentsCorrections>
+      </CommentsCorrectionsList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>09</Month>
+          <Day>26</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>12</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464822</ArticleId>
+        <ArticleId IdType="pii">ce.2022.266</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.266</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464823</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>11</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Waterjet-assisted endoscopic submucosal dissection in the colorectum: safe and effective?</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>755-756</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.271</ELocationID>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>John</LastName>
+            <ForeName>Sneha</ForeName>
+            <Initials>S</Initials>
+            <AffiliationInfo>
+              <Affiliation>Endoscopy, Gold Coast University Hospital, Southport, Australia.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016421">Editorial</PublicationType>
+          <PublicationType UI="D016420">Comment</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>16</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="CommentOn">
+          <RefSource>Clin Endosc. 2022 Nov;55(6):775-783</RefSource>
+          <PMID Version="1">36464827</PMID>
+        </CommentsCorrections>
+      </CommentsCorrectionsList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>02</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>14</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464823</ArticleId>
+        <ArticleId IdType="pii">ce.2022.271</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.271</ArticleId>
+      </ArticleIdList>
+      <ReferenceList>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464822</ArticleId>
+          </ArticleIdList>
+        </Reference>
+      </ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464824</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>How should a therapeutic strategy be constructed for acute cholecystitis after self-expanding metal stent placement for malignant biliary obstruction?</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>757-759</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.275</ELocationID>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Takenaka</LastName>
+            <ForeName>Mamoru</ForeName>
+            <Initials>M</Initials>
+            <AffiliationInfo>
+              <Affiliation>Department of Gastroenterology and Hepatology, Kindai University Faculty of Medicine, Osaka-Sayama, Japan.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kudo</LastName>
+            <ForeName>Masatoshi</ForeName>
+            <Initials>M</Initials>
+            <AffiliationInfo>
+              <Affiliation>Department of Gastroenterology and Hepatology, Kindai University Faculty of Medicine, Osaka-Sayama, Japan.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016421">Editorial</PublicationType>
+          <PublicationType UI="D016420">Comment</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>11</Month>
+          <Day>01</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="CommentOn">
+          <RefSource>Clin Endosc. 2022 Oct 21;:</RefSource>
+          <PMID Version="1">36266237</PMID>
+        </CommentsCorrections>
+      </CommentsCorrectionsList>
+      <MeshHeadingList>
+        <MeshHeading>
+          <DescriptorName UI="D000069916" MajorTopicYN="N">Endoscopic submucosal dissection</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D004724" MajorTopicYN="Y">Endoscopy</DescriptorName>
+        </MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>07</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>10</Month>
+          <Day>08</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464824</ArticleId>
+        <ArticleId IdType="pii">ce.2022.275</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.275</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464825</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Underestimation of endoscopic size in large gastric epithelial neoplasms.</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>760-766</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2021.269</ELocationID>
+        <Abstract>
+          <AbstractText Label="BACKGROUND/AIMS" NlmCategory="OBJECTIVE">Endoscopic submucosal dissection (ESD) is an effective method for resecting gastric adenomas and adenocarcinomas. A significant discrepancy was observed between endoscopic and pathological sizes in samples obtained from patients undergoing ESD. This study elucidates the factors affecting size discrepancy after formalin fixation.</AbstractText>
+          <AbstractText Label="METHODS" NlmCategory="METHODS">The records of 64 patients with 69 lesions were analyzed, including 50 adenomas and 19 adenocarcinomas. Data on location, gross shape, histology, and size after fixation in formalin were collected.</AbstractText>
+          <AbstractText Label="RESULTS" NlmCategory="RESULTS">The mean size of the resected specimen appeared to decrease after formalin fixation (37.5 mm prefixation vs. 35.8 mm postfixation, p&lt;0.05). The mean long axis diameter of the lesions was 20.3±7.9 mm prefixation and 13.4±7.9 mm postfixation. Size differences in lesions smaller than 20 mm were significantly greater than those in lesions larger than 20 mm (7.6±5.6 mm vs. 2.5±5.8 mm, p&lt;0.01). In multivariate analysis, a tumor size of ≥20 mm was found to be an independent factor affecting size postformalin fixation (p&lt;0.05).</AbstractText>
+          <AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">The endoscopic size of lesions before ESD may be underestimated in tumors larger than 20 mm in size. Therefore, increased attention must be paid during ESD to avoid instances of incomplete resection.</AbstractText>
+        </Abstract>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>05</Month>
+          <Day>19</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="CommentIn">
+          <RefSource>Clin Endosc. 2022 Nov;55(6):753-754</RefSource>
+          <PMID Version="1">36464822</PMID>
+        </CommentsCorrections>
+      </CommentsCorrectionsList>
+      <KeywordList Owner="NOTNLM">
+        <Keyword MajorTopicYN="N">Endoscopic submucosal dissection</Keyword>
+        <Keyword MajorTopicYN="N">Endoscopy</Keyword>
+        <Keyword MajorTopicYN="N">Stomach neoplasms</Keyword>
+      </KeywordList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2021</Year>
+          <Month>11</Month>
+          <Day>03</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>02</Month>
+          <Day>09</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464825</ArticleId>
+        <ArticleId IdType="pii">ce.2021.269</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2021.269</ArticleId>
+      </ArticleIdList>
+      <ReferenceList>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464821</ArticleId>
+          </ArticleIdList>
+        </Reference>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464828</ArticleId>
+          </ArticleIdList>
+        </Reference>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464825</ArticleId>
+          </ArticleIdList>
+        </Reference>
+      </ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">36464826</PMID>
+      <DateRevised>
+        <Year>2022</Year>
+        <Month>12</Month>
+        <Day>05</Day>
+      </DateRevised>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Print">2234-2400</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>55</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2022</Year>
+              <Month>Nov</Month>
+            </PubDate>
+          </JournalIssue>
+          <Title>Clinical endoscopy</Title>
+          <ISOAbbreviation>Clin Endosc</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Comparison between a novel core knife and the conventional IT knife 2 for endoscopic submucosal dissection of gastric mucosal lesions.</ArticleTitle>
+        <Pagination>
+          <MedlinePgn>767-774</MedlinePgn>
+        </Pagination>
+        <ELocationID EIdType="doi" ValidYN="Y">10.5946/ce.2022.002</ELocationID>
+        <Abstract>
+          <AbstractText Label="BACKGROUND/AIMS" NlmCategory="OBJECTIVE">Few studies have compared the performances of endoscopic knives. This study aimed to compare the therapeutic outcomes of a novel core knife and the conventional IT knife 2 for endoscopic submucosal dissection (ESD) of gastric mucosal lesions.</AbstractText>
+          <AbstractText Label="METHODS" NlmCategory="METHODS">This prospective, non-inferiority trial included patients diagnosed with gastric adenoma or early-stage adenocarcinoma at Keimyung University Dongsan Hospital between June and November 2020. The patients were randomly assigned to either the core knife or the IT knife 2 group. The operators and assistants scored the knives' grip convenience and cutting abilities.</AbstractText>
+          <AbstractText Label="RESULTS" NlmCategory="RESULTS">A total of 39 patients were enrolled (core knife group, 20 patients; IT knife 2 group, 19 patients). There were no significant between-group differences in operator-assessed grip convenience (9.600 vs. 9.526, p=0.753), cutting ability (9.600 vs. 9.105, p=0.158), or assistant-assessed grip convenience (9.500 vs. 9.368, p=0.574).</AbstractText>
+          <AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">The core knife achieved therapeutic outcomes that were comparable to those of the IT knife 2 for ESD of gastric mucosal lesions.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Park</LastName>
+            <ForeName>Myeongsoon</ForeName>
+            <Initials>M</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Lee</LastName>
+            <ForeName>Jin Wook</ForeName>
+            <Initials>JW</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Shin</LastName>
+            <ForeName>Dong Woo</ForeName>
+            <Initials>DW</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Kim</LastName>
+            <ForeName>Jungseok</ForeName>
+            <Initials>J</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Lee</LastName>
+            <ForeName>Yoo Jin</ForeName>
+            <Initials>YJ</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Lee</LastName>
+            <ForeName>Ju Yup</ForeName>
+            <Initials>JY</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Cho</LastName>
+            <ForeName>Kwang Bum</ForeName>
+            <Initials>KB</Initials>
+            <AffiliationInfo>
+              <Affiliation>Division of Gastroenterology, Department of Internal Medicine, Keimyung University Dongsan Medical Center, Keimyung University School of Medicine, Daegu, Korea.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <GrantList CompleteYN="Y">
+          <Grant>
+            <Agency>Korea Health Industry Development Institute</Agency>
+            <Country/>
+          </Grant>
+          <Grant>
+            <Agency>INCORE Co. Ltd</Agency>
+            <Country/>
+          </Grant>
+        </GrantList>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2022</Year>
+          <Month>05</Month>
+          <Day>25</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Korea (South)</Country>
+        <MedlineTA>Clin Endosc</MedlineTA>
+        <NlmUniqueID>101576886</NlmUniqueID>
+        <ISSNLinking>2234-2400</ISSNLinking>
+      </MedlineJournalInfo>
+      <KeywordList Owner="NOTNLM">
+        <Keyword MajorTopicYN="N">Endoscopic submucosal dissection</Keyword>
+        <Keyword MajorTopicYN="N">Equipment and supplies</Keyword>
+        <Keyword MajorTopicYN="N">Stomach neoplasms</Keyword>
+        <Keyword MajorTopicYN="N">Surgical instruments</Keyword>
+      </KeywordList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="received">
+          <Year>2021</Year>
+          <Month>11</Month>
+          <Day>22</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="accepted">
+          <Year>2022</Year>
+          <Month>03</Month>
+          <Day>10</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>5</Day>
+          <Hour>0</Hour>
+          <Minute>42</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2022</Year>
+          <Month>12</Month>
+          <Day>6</Day>
+          <Hour>6</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">36464826</ArticleId>
+        <ArticleId IdType="pii">ce.2022.002</ArticleId>
+        <ArticleId IdType="doi">10.5946/ce.2022.002</ArticleId>
+      </ArticleIdList>
+      <ReferenceList>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464823</ArticleId>
+          </ArticleIdList>
+        </Reference>
+        <Reference>
+          <ArticleIdList>
+            <ArticleId IdType="pubmed">36464827</ArticleId>
+          </ArticleIdList>
+        </Reference>
+      </ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>
+

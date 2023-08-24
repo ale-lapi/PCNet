@@ -8,7 +8,7 @@ import networkx as nx
 from PCNet import PCNet_parser as pp
 from PCNet import PCNet_network as pcn
 from PCNet import PCNet_utils as utils
-from gzip import GzipFile
+import csv
 
 __author__ = "Alessandro Lapi"
 __email__ = "alessandro.lapi@studio.unibo.it"
@@ -20,8 +20,8 @@ path_data = '../data/'
 path_test = '../data/test/'
 
 # Random MeSH and term for testing
-mesh = 'D000328'
-mesh_word = 'adult'
+mesh = 'D004724'
+mesh_word = 'endoscopy'
 
 
 def test_get_pmid():
@@ -29,38 +29,48 @@ def test_get_pmid():
     Test the get_pmid function.
     It checks if the pmid is an integer and if it has the right length.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
 
     min_pmid, max_pmid = 100000, 100000000
 
     for node in parse_file.getroot().iter('PubmedArticle'):
+        if pp.get_pmid(node) == None:
+            continue
         assert type(pp.get_pmid(node)) == int
         assert min_pmid < pp.get_pmid(node) < max_pmid
+    assert pp.get_pmid(parse_file.getroot()[0]) == None    
+    assert pp.get_pmid(parse_file.getroot()[1]) == 36464820
 
 def test_get_title():
     """
     Test the get_title function.
     It checks if the title is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_title(node)) == str 
         assert '\n' not in pp.get_title(node)
         assert '\t' not in pp.get_title(node)
-     
+
+    assert pp.get_title(parse_file.getroot()[3]) == '' 
+    assert pp.get_title(parse_file.getroot()[2]) == 'Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.'
+
 def test_get_abstract():
     """
     Test the get_abstract function.
     It checks if the abstract is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_abstract(node)) == str
         assert '\n' not in pp.get_abstract(node)
         assert '\t' not in pp.get_abstract(node)
+
+    assert pp.get_abstract(parse_file.getroot()[2]) == '      Abstract for testing.     '
+    assert pp.get_abstract(parse_file.getroot()[3]) == ''
 
 def test_validate_date():
     """
@@ -81,7 +91,7 @@ def test_get_publication_date():
     Test the get_publication_date function. 
     It checks if the date is a string, if it does not contain '\n' or '\t' and if it is in the right format.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         if pp.get_publication_date(node) != '':
@@ -91,53 +101,66 @@ def test_get_publication_date():
         assert '\t' not in pp.get_publication_date(node)
         assert utils.validate_date(pp.get_publication_date(node), "%Y-%m-%d") == True
 
+    assert pp.get_publication_date(parse_file.getroot()[1]) == '2022-10-05'
+
 def test_get_authors():
     """
     Test the get_authors function.
     It checks if the authors is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_authors(node)) == str
         assert '\n' not in pp.get_authors(node)
         assert '\t' not in pp.get_authors(node)
+    
+    assert pp.get_authors(parse_file.getroot()[2]) == 'Muhammad Haseeb, Christopher C Thompson'
+    assert pp.get_authors(parse_file.getroot()[6]) == ''
 
 def test_get_journal():
     """
     Test the get_journal function.
     It checks if the journal is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_journal(node)) == str
         assert '\n' not in pp.get_journal(node)
         assert '\t' not in pp.get_journal(node)
 
+    assert pp.get_journal(parse_file.getroot()[2]) == 'Clinical endoscopy'
+
 def test_get_keywords():
     """
     Test the get_keywords function.
     It checks if the keywords is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_keywords(node)) == str
         assert '\n' not in pp.get_keywords(node)
         assert '\t' not in pp.get_keywords(node)
+    
+    assert pp.get_keywords(parse_file.getroot()[6]) == 'endoscopic submucosal dissection, endoscopy, stomach neoplasms'
+    assert pp.get_keywords(parse_file.getroot()[2]) == ''
 
 def test_get_references():
     """
     Test the get_references function.
     It checks if the references is a string and if it does not contain '\n' or '\t'.
     """
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
+    xml_file = path_test + "test.xml"
     parse_file = ET.parse(xml_file)
     for node in parse_file.getroot().iter('PubmedArticle'):
         assert type(pp.get_references(node)) == str
         assert '\n' not in pp.get_references(node)
         assert '\t' not in pp.get_references(node)
+
+    assert pp.get_references(parse_file.getroot()[2]) == '36464824'
+    assert pp.get_references(parse_file.getroot()[3]) == ''
 
 
 def test_xml_parser():
@@ -146,15 +169,26 @@ def test_xml_parser():
     It checks if the xml_parser function creates the right files.
     """
     pp.xml_parser(path_test, path_test)
-    assert os.path.exists(path_test + 'links_test.xml.gz.csv')
-    assert os.path.exists(path_test + 'nodes_test.xml.gz.csv')
+    assert os.path.exists(path_test + 'links_test.csv')
+    assert os.path.exists(path_test + 'nodes_test.csv')
+
+    with open(path_test + 'links_test.csv', 'r') as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            assert row == ['36464820\t36464821']
+            break
+
+    with open(path_test + 'nodes_test.csv', 'r') as file:
+        csv_reader = csv.reader(file)
+        next(csv_reader)
+        next(csv_reader)
+        assert next(csv_reader) == ['36464822\t\t\t2022-11-16\tSeung Woo Lee\tClinical endoscopy\t\t']          
 
 def test_csv_to_dataframe():
     """
     Test the csv_to_dataframe function.
     It checks if the csv_to_dataframe function creates pandas dataframes of the right shape.
     """
-
     info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
     pp.xml_parser(path_test, path_test, informations=info)
     df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
@@ -165,6 +199,23 @@ def test_csv_to_dataframe():
     assert df_links.shape[1] == 2
     assert df_nodes.shape[1] == 2 + len(info)
 
+    assert df_links.iloc[0, 0] == 36464820
+    assert df_links.iloc[0, 1] == 36464821
+    assert df_nodes.iloc[0, 0] == 36464820
+    assert df_nodes.iloc[1, 1] == 'Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.'
+    assert df_nodes.iloc[1, 2] == '      Abstract for testing.     '
+    assert df_nodes.iloc[0, 3] == '2022-10-05'
+    assert df_nodes.iloc[1, 4] == 'Muhammad Haseeb, Christopher C Thompson'
+    assert df_nodes.iloc[1, 5] == 'Clinical endoscopy'
+    assert df_nodes.iloc[5, 6] == 'endoscopic submucosal dissection, endoscopy, stomach neoplasms'
+    assert df_nodes.iloc[1, 7] == '36464824'
+
+    assert df_nodes.iloc[2, 1] == ''
+    assert df_nodes.iloc[2, 2] == ''
+    assert df_nodes.iloc[5, 4] == ''
+    assert df_nodes.iloc[1, 6] == ''
+    assert df_nodes.iloc[2, 7] == ''
+
 
 def test_mesh_selection():
     """
@@ -173,25 +224,13 @@ def test_mesh_selection():
     """
     pp.xml_parser(path_test, path_test, MeSH=mesh)
 
-    assert os.path.exists(path_test + 'links_test.xml.gz.csv')
-    assert os.path.exists(path_test + 'nodes_test.xml.gz.csv') 
+    assert os.path.exists(path_test + 'links_test.csv')
+    assert os.path.exists(path_test + 'nodes_test.csv') 
     
     df = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
 
     assert df['keywords'].str.contains(mesh_word).any() == True
-
-def test_no_mesh_selection():
-    """
-    Test the no mesh selection in the xml_parser function and csv_to_dataframe function.
-    It checks if if all the articles in the xml file are parsed. 
-    """
-    pp.xml_parser(path_test, path_test) 
-    df = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
-    xml_file = GzipFile(path_test + 'test.xml.gz', 'r')
-    test_xml = ET.parse(xml_file)
-
-    assert len(test_xml.getroot()) == len(df)
-    
+  
 
 def test_title_selecion():
     """

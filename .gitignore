@@ -4,8 +4,8 @@ docs/*
 !docs/_static
 pubmed*.xml.gz
 pubmed.gexf
-links_pubmed*.csv
-nodes_pubmed*.csv
+links*.csv
+nodes*.csv
 .pytest_cache/*
 .coverage
 test_configuration.ini

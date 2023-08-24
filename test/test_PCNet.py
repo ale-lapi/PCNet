@@ -16,9 +16,8 @@ __author__ = "Alessandro Lapi"
 __email__ = "alessandro.lapi@studio.unibo.it"
 
 # Path to the data
-if not os.path.exists('../data/'):
-    os.makedirs('../data/')
-path_data = '../data/'
+if not os.path.exists('../data/test/'):
+    os.makedirs('../data/test/')
 path_test = '../data/test/'
 
 # Random MeSH and term for testing

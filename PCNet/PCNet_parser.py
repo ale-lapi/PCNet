@@ -65,7 +65,7 @@ def get_pmid(node):
     if pmid is not None:
         pmid = int(pmid)
     
-        # Set pmid to 0 if it is not in the correct format to exclude the article from the parse
+        # Set pmid to None if it is not in the correct format to exclude the article from the parse
         if pmid < pmid_min or pmid > pmid_max:
             pmid = None     
 
@@ -348,19 +348,20 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
         """
         # Extract the pmid
         pmid = get_pmid(node)
-        net_nodes.write(f"{pmid}\t")
 
         # If the pmid is not in the correct format, we skip the article
         if pmid is not None:
+
+            net_nodes.write(f"{pmid}\t")
             
             # Extract the informations selected
             if 'title' in informations:
                 title = get_title(node)
-                net_nodes.write(f"{title} \t")
+                net_nodes.write(f"{title}\t")
             
             if 'abstract' in informations:
                 abstract = get_abstract(node)
-                net_nodes.write(f"{abstract} \t")
+                net_nodes.write(f"{abstract}\t")
             
             if 'date' in informations:
                 date = get_publication_date(node)
@@ -368,11 +369,11 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
             
             if 'authors' in informations:
                 authors = get_authors(node)
-                net_nodes.write(f"{authors} \t")
+                net_nodes.write(f"{authors}\t")
             
             if 'journal' in informations:
                 journal = get_journal(node)
-                net_nodes.write(f"{journal} \t")
+                net_nodes.write(f"{journal}\t")
             
             if 'keywords' in informations:
                 keywords = get_keywords(node)
@@ -399,8 +400,8 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
         parse_file = ET.parse(xml_file)
 
         # Create 2 csv files for the links and the nodes
-        with open(path_csv + "links_" + file + ".csv", "w", encoding='utf-8') as net_links:
-            with open(path_csv + "nodes_" + file + ".csv", "w", encoding='utf-8') as net_nodes:
+        with open(path_csv + "links_" + os.path.basename(file).split('.')[0] + ".csv", "w", encoding='utf-8') as net_links:
+            with open(path_csv + "nodes_" + os.path.basename(file).split('.')[0] + ".csv", "w", encoding='utf-8') as net_nodes:
                 
                 # Loop over the nodes of the xml file, i.e. the articles
                 for node in parse_file.getroot().iter('PubmedArticle'):

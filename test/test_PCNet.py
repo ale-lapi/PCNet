@@ -33,6 +33,27 @@ def parse_file():
     parse_file = ET.parse(xml_file)
     return parse_file
 
+@pytest.fixture
+def csv_file():
+    pp.xml_parser(path_test, path_test)
+    return None
+
+@pytest.fixture
+def df_nodes(csv_file):
+    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
+    return df_nodes
+
+@pytest.fixture
+def df_links(csv_file):
+    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
+    return df_links
+
+@pytest.fixture
+def graph():
+    G = nx.read_gexf(path_test + 'test.gexf')
+    return G
+
+
 def test_get_pmid(parse_file):
     """
     Test the get_pmid function.
@@ -155,12 +176,11 @@ def test_get_references(parse_file):
     assert pp.get_references(parse_file.getroot()[3]) == ''
 
 
-def test_xml_parser():
+def test_xml_parser(csv_file):
     """
     Test the xml_parser function.
     It checks if the xml_parser function creates the right files.
     """
-    pp.xml_parser(path_test, path_test)
     assert os.path.exists(path_test + 'links_test.csv')
     assert os.path.exists(path_test + 'nodes_test.csv')
 
@@ -176,20 +196,18 @@ def test_xml_parser():
         next(csv_reader)
         assert next(csv_reader) == ['36464822\t\t\t2022-11-16\tSeung Woo Lee\tClinical endoscopy\t\t']          
 
-def test_csv_to_dataframe():
+def test_csv_to_dataframe(csv_file):
     """
     Test the csv_to_dataframe function.
     It checks if the csv_to_dataframe function creates pandas dataframes of the right shape.
     """
-    info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=info)
     df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
     df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
 
     assert type(df_links) == pd.core.frame.DataFrame
     assert type(df_nodes) == pd.core.frame.DataFrame
     assert df_links.shape[1] == 2
-    assert df_nodes.shape[1] == 2 + len(info)
+    assert df_nodes.shape[1] == 8
 
     assert df_links.iloc[0, 0] == 36464820
     assert df_links.iloc[0, 1] == 36464821
@@ -215,13 +233,11 @@ def test_mesh_selection():
     It checks if the xml_parser function creates the right files and if the keywords column contains the mesh_word.
     """
     pp.xml_parser(path_test, path_test, MeSH=mesh)
+    df = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
 
     assert os.path.exists(path_test + 'links_test.csv')
     assert os.path.exists(path_test + 'nodes_test.csv') 
-    
-    df = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
-
-    assert df['keywords'].str.contains(mesh_word).any() == True
+    assert df['keywords'].str.contains(mesh_word).all() == True
   
 
 def test_title_selecion():
@@ -229,7 +245,7 @@ def test_title_selecion():
     Test the title selection. It checks the shape of the dataframe and if the title column is in the dataframe.
     """
     title = ['title']
-    pp.xml_parser(path_test, path_test, informations='title')
+    pp.xml_parser(path_test, path_test, informations=title)
     title_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=title)
 
     assert 'title' in title_df_nodes.columns
@@ -356,18 +372,15 @@ def test_no_keywords_selecion():
     assert 'keywords' not in no_keywords_df_nodes.columns
     assert no_keywords_df_nodes.shape[1] == 7
 
-def test_all_selecion():
+def test_all_selecion(df_nodes):
     """
     Test the all selection. It checks the shape of the dataframe and if all the columns are in the dataframe.
     """
     info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=info)
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=info)
 
     for column in info:
         assert column in df_nodes.columns
     
-    assert df_nodes.shape[1] == 2 + len(info)
     assert df_nodes.shape[1] == 8
 
 def test_no_selecion():
@@ -389,45 +402,32 @@ def test_is_empty_csv():
     assert utils.is_empty_csv(path_test + 'test_not_empty.csv') == False
 
 
-def test_df_to_graph():
+def test_df_to_graph(df_links, df_nodes):
     """
     Test the df_to_graph function.
     It checks if the df_to_graph function creates a networkx graph.
     """
-    info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=info)
-    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=info)
-
-    graph = pcn.df_to_graph(df_links, df_nodes, unknown_nodes=True)
+    graph = pcn.df_to_graph(df_links, df_nodes)
 
     assert type(graph) == nx.classes.digraph.DiGraph
 
-def test_connected_graph():
+def test_connected_graph_selection(df_links, df_nodes):
     """
     Test the connected graph selection of the df_to_graph function.
     """
-    info = []
-    pp.xml_parser(path_test, path_test, informations=info)
-    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links', columns=info)
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=info)
-    graph_connected = pcn.df_to_graph(df_links, df_nodes, connected_graph=True, unknown_nodes=True)
-    graph_not_connected = pcn.df_to_graph(df_links, df_nodes, connected_graph=False, unknown_nodes=True)
+    graph_connected = pcn.df_to_graph(df_links, df_nodes, connected_graph=True)
+    graph_not_connected = pcn.df_to_graph(df_links, df_nodes, connected_graph=False)
     
     assert nx.is_weakly_connected(graph_connected) == True
     assert nx.is_weakly_connected(graph_not_connected) == False
     assert len(graph_connected.nodes()) <= len(graph_not_connected.nodes())
 
-def test_unknown_nodes():
+def test_unknown_nodes_selection(df_links, df_nodes):
     """
     Test the unknown nodes selection of the df_to_graph function.
     It checks if the graph with unknown nodes has more nodes than the graph without unknown nodes.
     It also checks if the nodes in the graph without unknown nodes have no empty attributes.   
     """
-    info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=info)
-    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=info)
     graph_unknown_nodes = pcn.df_to_graph(df_links, df_nodes, connected_graph=False, unknown_nodes=True)
     graph_no_unknown_nodes = pcn.df_to_graph(df_links, df_nodes, connected_graph=False, unknown_nodes=False)
     
@@ -436,33 +436,66 @@ def test_unknown_nodes():
     for node in list(graph_no_unknown_nodes.nodes(data=True)):
         assert node[1] != {}
 
+def test_connect_graph(df_links, df_nodes):
+    """
+    Test the connect_graph function.
+    It checks if the connect_graph function creates a connected graph.
+    """
+    edge_list = [(36464820, 36464821), (36464820, 36464824), (36464821, 36464824), (36464825, 36464821), (36464825, 36464828)]
+    G = pcn.df_to_graph(df_links, df_nodes, connected_graph=False, unknown_nodes=True)
+    G_connected = pcn.connect_graph(G)
 
-def test_nodes_to_df():
+    assert nx.is_weakly_connected(G) == False
+    assert nx.is_weakly_connected(G_connected) == True
+    assert list(G_connected.edges(data=False)) == edge_list
+
+def test_add_attributes(df_links, df_nodes):
+    """
+    Test the add_attributes function.
+    It checks if the add_attributes function adds the attributes to the nodes.
+    """
+    G = pcn.df_to_graph(df_links, df_nodes, connected_graph=False, unknown_nodes=True)
+    G = pcn.add_attributes(G, df_nodes)
+
+    assert G.nodes[36464821]['title'] == 'Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.'
+    assert G.nodes[36464821]['abstract'] == '      Abstract for testing.     '
+    assert G.nodes[36464820]['date'] == '2022-10-05'
+    assert G.nodes[36464821]['authors'] == 'Muhammad Haseeb, Christopher C Thompson'
+    assert G.nodes[36464821]['journal'] == 'Clinical endoscopy'
+    assert G.nodes[36464825]['keywords'] == 'endoscopic submucosal dissection, endoscopy, stomach neoplasms'
+    assert G.nodes[36464821]['references'] == '36464824'
+
+    assert G.nodes[36464822]['title'] == ''
+    assert G.nodes[36464822]['abstract'] == ''
+    assert G.nodes[36464825]['authors'] == ''
+    assert G.nodes[36464821]['keywords'] == ''
+    assert G.nodes[36464822]['references'] == ''
+
+    # assert all the attributes of the nodes 36464827 and 36464828 are empty
+    for node in G.nodes(data=True):
+        if node[0] == 36464827 or node[0] == 36464828:
+            assert node[1] == {}
+
+
+def test_nodes_to_df(graph):
     """
     Test the nodes_to_df function. 
     It checks if the nodes_to_df function creates a pandas dataframe of the right shape.
     It also checks if the first column is 'pmid'.
     """
-    info = ['title', 'abstract', 'date', 'authors', 'journal', 'keywords']
-    
-    G = nx.read_gexf(path_test + 'test.gexf')
-    df_nodes_graph = pcn.nodes_to_df(G)
+    df_nodes_graph = pcn.nodes_to_df(graph)
 
     assert type(df_nodes_graph) == pd.core.frame.DataFrame
-    assert df_nodes_graph.shape[1] == 2 + len(info)
+    assert df_nodes_graph.shape[1] == 8
     assert df_nodes_graph.columns[0] == 'pmid'
-    
-    # for column in info:
-    #     assert column in df_nodes_graph.columns
 
-def test_links_to_df():
+def test_links_to_df(graph):
     """
     Test the links_to_df function.
     It checks if the links_to_df function creates a pandas dataframe of the right shape.
     It also checks if the first column is 'source' and the second column is 'target'.
     """
-    G = nx.read_gexf(path_test + 'test.gexf')
-    df_links_graph = pcn.links_to_df(G)
+    df_links_graph = pcn.links_to_df(graph)
 
     assert type(df_links_graph) == pd.core.frame.DataFrame
     assert df_links_graph.shape[1] == 2

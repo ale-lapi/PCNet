@@ -488,6 +488,24 @@ def test_nodes_to_df(graph):
     assert type(df_nodes_graph) == pd.core.frame.DataFrame
     assert df_nodes_graph.shape[1] == 8
     assert df_nodes_graph.columns[0] == 'pmid'
+    
+    # order the rows by the pmid column to check specific values
+    df_nodes_graph = df_nodes_graph.sort_values(by=['pmid'])
+
+    assert df_nodes_graph.iloc[0, 0] == '36464820'
+    assert df_nodes_graph.iloc[1, 1] == 'Assessing implementation strategy and learning curve for transoral incisionless fundoplication as a new technique.'
+    assert df_nodes_graph.iloc[1, 2] == '      Abstract for testing.     '
+    assert df_nodes_graph.iloc[0, 3] == '2022-10-05'
+    assert df_nodes_graph.iloc[1, 4] == 'Muhammad Haseeb, Christopher C Thompson'
+    assert df_nodes_graph.iloc[1, 5] == 'Clinical endoscopy'
+    assert df_nodes_graph.iloc[5, 6] == 'endoscopic submucosal dissection, endoscopy, stomach neoplasms'
+    assert df_nodes_graph.iloc[1, 7] == '36464824'
+
+    assert df_nodes_graph.iloc[2, 1] == ''
+    assert df_nodes_graph.iloc[2, 2] == ''
+    assert df_nodes_graph.iloc[5, 4] == ''
+    assert df_nodes_graph.iloc[1, 6] == ''
+    assert df_nodes_graph.iloc[2, 7] == ''
 
 def test_links_to_df(graph):
     """
@@ -502,4 +520,5 @@ def test_links_to_df(graph):
     assert df_links_graph.columns[0] == 'source'
     assert df_links_graph.columns[1] == 'target'
 
-
+    assert df_links_graph.iloc[0, 0] == '36464820'
+    assert df_links_graph.iloc[0, 1] == '36464821'

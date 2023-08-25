@@ -6,8 +6,6 @@ from tqdm import tqdm
 import pandas as pd
 import networkx as nx
 import csv
-import configparser
-from PCNet import PCNet_parser as pp
 from PCNet import PCNet_utils as utils
 
 __author__ = "Alessandro Lapi"

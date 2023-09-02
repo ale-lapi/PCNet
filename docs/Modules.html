@@ -46,9 +46,10 @@
 <li class="toctree-l1"><a class="reference internal" href="PCNet.html">PCNet</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pcnet-network">PCNet_network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.add_attributes"><code class="docutils literal notranslate"><span class="pre">add_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.connect_graph"><code class="docutils literal notranslate"><span class="pre">connect_graph()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.csv_to_dataframe"><code class="docutils literal notranslate"><span class="pre">csv_to_dataframe()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.df_to_graph"><code class="docutils literal notranslate"><span class="pre">df_to_graph()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.is_empty_csv"><code class="docutils literal notranslate"><span class="pre">is_empty_csv()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.links_to_df"><code class="docutils literal notranslate"><span class="pre">links_to_df()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_network.nodes_to_df"><code class="docutils literal notranslate"><span class="pre">nodes_to_df()</span></code></a></li>
 </ul>
@@ -62,7 +63,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_parser.get_publication_date"><code class="docutils literal notranslate"><span class="pre">get_publication_date()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_parser.get_references"><code class="docutils literal notranslate"><span class="pre">get_references()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_parser.get_title"><code class="docutils literal notranslate"><span class="pre">get_title()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_parser.sanitize_text"><code class="docutils literal notranslate"><span class="pre">sanitize_text()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_parser.xml_parser"><code class="docutils literal notranslate"><span class="pre">xml_parser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pcnet-utils">PCNet_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_utils.is_empty_csv"><code class="docutils literal notranslate"><span class="pre">is_empty_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PCNet.PCNet_utils.validate_date"><code class="docutils literal notranslate"><span class="pre">validate_date()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -94,24 +101,70 @@
            <div itemprop="articleBody">
              
   <section id="modules">
-<h1><a class="toc-backref" href="#id27" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id35" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Permalink to this heading"></a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#modules" id="id27">Modules</a></p>
+<li><p><a class="reference internal" href="#modules" id="id35">Modules</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pcnet-network" id="id28">PCNet_network</a></p></li>
-<li><p><a class="reference internal" href="#pcnet-parser" id="id29">PCNet_parser</a></p></li>
+<li><p><a class="reference internal" href="#pcnet-network" id="id36">PCNet_network</a></p></li>
+<li><p><a class="reference internal" href="#pcnet-parser" id="id37">PCNet_parser</a></p></li>
+<li><p><a class="reference internal" href="#pcnet-utils" id="id38">PCNet_utils</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="pcnet-network">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">PCNet_network</a><a class="headerlink" href="#pcnet-network" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">PCNet_network</a><a class="headerlink" href="#pcnet-network" title="Permalink to this heading"></a></h2>
 <p>This module contains the functions to build the citation network.</p>
 <span class="target" id="module-PCNet.PCNet_network"></span><dl class="py function">
+<dt class="sig sig-object py" id="PCNet.PCNet_network.add_attributes">
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">add_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.add_attributes" title="Permalink to this definition"></a></dt>
+<dd><p>Add the attributes to the nodes of the graph.
+The attributes are the informations extracted with the parse_xml function.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph to which add the attributes</p>
+</dd>
+<dt>df_nodes<span class="classifier">pandas dataframe</span></dt><dd><p>Dataframe with the nodes</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph with the attributes added to the nodes</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PCNet.PCNet_network.connect_graph">
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">connect_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.connect_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Return a connected graph from the input graph.
+The input graph must be a directed graph.
+The connected graph is the largest connected component of the input graph.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph to connect</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Connected graph</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="PCNet.PCNet_network.csv_to_dataframe">
-<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">csv_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_csv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_of_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['title',</span> <span class="pre">'abstract',</span> <span class="pre">'date',</span> <span class="pre">'authors',</span> <span class="pre">'journal',</span> <span class="pre">'keywords']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.csv_to_dataframe" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">csv_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_of_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['title',</span> <span class="pre">'abstract',</span> <span class="pre">'date',</span> <span class="pre">'authors',</span> <span class="pre">'journal',</span> <span class="pre">'keywords']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.csv_to_dataframe" title="Permalink to this definition"></a></dt>
 <dd><p>Create a dataframe from the csv files. 
 Specify if you want the links or the nodes, with the type_of_df parameter.
 Specify the columns of the dataframe with the columns parameter: if you want the links,
@@ -120,8 +173,8 @@ the columns are [‘source’, ‘target’], if you want the nodes, the columns
 If you created the csv files with less informations, you can specify the columns you want
 in the columns parameter. For example, if you created the csv files with only the title 
 and the abstract, you can write: columns=[‘title’, ‘abstract’].</p>
-<section id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>path<span class="classifier">str</span></dt><dd><p>Path of the csv files</p>
 </dd>
@@ -131,8 +184,8 @@ and the abstract, you can write: columns=[‘title’, ‘abstract’].</p>
 </dd>
 </dl>
 </section>
-<section id="returns">
-<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a></h3>
+<section id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>df<span class="classifier">pandas dataframe</span></dt><dd><p>Dataframe with the links or the nodes</p>
 </dd>
@@ -147,8 +200,8 @@ and the abstract, you can write: columns=[‘title’, ‘abstract’].</p>
 Each nodes of the graph has its attributes, if known. 
 The attributes are the informations extracted with the parse_xml function.
 Self loops are removed from the graph.</p>
-<section id="id1">
-<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>df_links<span class="classifier">pandas dataframe</span></dt><dd><p>Dataframe with the links</p>
 </dd>
@@ -160,8 +213,8 @@ Self loops are removed from the graph.</p>
 </dd>
 </dl>
 </section>
-<section id="id2">
-<h3>Returns<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<section id="id6">
+<h3>Returns<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph created from the links and the nodes dataframes</p>
 </dd>
@@ -170,38 +223,18 @@ Self loops are removed from the graph.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="PCNet.PCNet_network.is_empty_csv">
-<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">is_empty_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.is_empty_csv" title="Permalink to this definition"></a></dt>
-<dd><p>Check if a csv file is empty</p>
-<section id="id3">
-<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
-<dl class="simple">
-<dt>csv_file<span class="classifier">str</span></dt><dd><p>Path to the csv file</p>
-</dd>
-</dl>
-</section>
-<section id="id4">
-<h3>Returns<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
-<dl class="simple">
-<dt>boolean</dt><dd><p>True if the csv is empty, False otherwise</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="PCNet.PCNet_network.links_to_df">
-<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">links_to_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.links_to_df" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">links_to_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.links_to_df" title="Permalink to this definition"></a></dt>
 <dd><p>Return a dataframe of links from the edges of the input .gexf graph.</p>
-<section id="id5">
-<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <dl class="simple">
-<dt>path<span class="classifier">str</span></dt><dd><p>Path of the .gexf graph</p>
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph from which extract the links</p>
 </dd>
 </dl>
 </section>
-<section id="id6">
-<h3>Returns<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<section id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>df<span class="classifier">pandas dataframe  </span></dt><dd><p>Dataframe of links</p>
 </dd>
@@ -211,17 +244,17 @@ Self loops are removed from the graph.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="PCNet.PCNet_network.nodes_to_df">
-<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">nodes_to_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.nodes_to_df" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_network.</span></span><span class="sig-name descname"><span class="pre">nodes_to_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_network.nodes_to_df" title="Permalink to this definition"></a></dt>
 <dd><p>Return a dataframe of nodes from the attributes of the input .gexf graph</p>
-<section id="id7">
-<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<section id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <dl class="simple">
-<dt>path<span class="classifier">str</span></dt><dd><p>Path of the .gexf graph</p>
+<dt>G<span class="classifier">networkx graph</span></dt><dd><p>Graph from which extract the nodes</p>
 </dd>
 </dl>
 </section>
-<section id="id8">
-<h3>Returns<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>df<span class="classifier">pandas dataframe</span></dt><dd><p>Dataframe of nodes</p>
 </dd>
@@ -231,21 +264,21 @@ Self loops are removed from the graph.</p>
 
 </section>
 <section id="pcnet-parser">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink">PCNet_parser</a><a class="headerlink" href="#pcnet-parser" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">PCNet_parser</a><a class="headerlink" href="#pcnet-parser" title="Permalink to this heading"></a></h2>
 <p>This module contains the functions to parse xml files.</p>
 <span class="target" id="module-PCNet.PCNet_parser"></span><dl class="py function">
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_abstract">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_abstract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_abstract" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the abstract of the article corresponding to the node</p>
-<section id="id9">
-<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id10">
-<h3>Returns<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>abstract<span class="classifier">str</span></dt><dd><p>Abstract of the article corresponding to the node</p>
 </dd>
@@ -257,15 +290,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_authors">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_authors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_authors" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the authors of the article corresponding to the node</p>
-<section id="id11">
-<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id12">
-<h3>Returns<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>authors<span class="classifier">str</span></dt><dd><p>Authors of the article corresponding to the node</p>
 </dd>
@@ -277,15 +310,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_journal">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_journal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_journal" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the journal of the article corresponding to the node</p>
-<section id="id13">
-<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id14">
-<h3>Returns<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>journal<span class="classifier">str</span></dt><dd><p>Journal of the article corresponding to the node</p>
 </dd>
@@ -297,15 +330,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_keywords">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_keywords" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the keywords of the article corresponding to the node</p>
-<section id="id15">
-<h3>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id16">
-<h3>Returns<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<section id="id18">
+<h3>Returns<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>keywords<span class="classifier">str</span></dt><dd><p>Keywords of the article corresponding to the node</p>
 </dd>
@@ -317,15 +350,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_pmid">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_pmid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_pmid" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the pmid of the article corresponding to the node</p>
-<section id="id17">
-<h3>Parameters<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id18">
-<h3>Returns<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>pmid<span class="classifier">int</span></dt><dd><p>pmid of the article corresponding to the node</p>
 </dd>
@@ -337,15 +370,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_publication_date">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_publication_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_publication_date" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the publication date of the article corresponding to the node</p>
-<section id="id19">
-<h3>Parameters<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id20">
-<h3>Returns<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>date<span class="classifier">str</span></dt><dd><p>Publication date of the article corresponding to the node</p>
 </dd>
@@ -357,15 +390,15 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_references">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_references</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_references" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the references of the article corresponding to the node</p>
-<section id="id21">
-<h3>Parameters<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id22">
-<h3>Returns<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>references<span class="classifier">str</span></dt><dd><p>References of the article corresponding to the node</p>
 </dd>
@@ -377,17 +410,37 @@ Self loops are removed from the graph.</p>
 <dt class="sig sig-object py" id="PCNet.PCNet_parser.get_title">
 <span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">get_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.get_title" title="Permalink to this definition"></a></dt>
 <dd><p>While parsing the xml file, return the title of the article corresponding to the node</p>
-<section id="id23">
-<h3>Parameters<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>node<span class="classifier">int</span></dt><dd><p>Node of the parsed xml file</p>
 </dd>
 </dl>
 </section>
-<section id="id24">
-<h3>Returns<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<section id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>title<span class="classifier">str</span></dt><dd><p>Title of the article corresponding to the node</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PCNet.PCNet_parser.sanitize_text">
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_parser.</span></span><span class="sig-name descname"><span class="pre">sanitize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_parser.sanitize_text" title="Permalink to this definition"></a></dt>
+<dd><p>Sanitize the text from the xml file to avoid problems with the csv file</p>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>text<span class="classifier">str</span></dt><dd><p>Text to sanitize</p>
+</dd>
+</dl>
+</section>
+<section id="id28">
+<h3>Returns<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>text<span class="classifier">str</span></dt><dd><p>Sanitized text</p>
 </dd>
 </dl>
 </section>
@@ -400,9 +453,12 @@ Self loops are removed from the graph.</p>
 Each xml file will have its own csv files.
 The structure of the csv files is the following:
 - links: PMID of the article, PMID of the reference
-- nodes: PMID of the article, informations, references; where informations are the informations chosen by the user.</p>
-<section id="id25">
-<h3>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+- nodes: PMID of the article, informations, references; where informations are the informations chosen by the user.
+The csv files are saved in the path_csv folder.
+If the MeSH parameter is specified, the parse is performed only over the articles with the MeSH specified.
+If the informations parameter is specified, the parse is performed only over the informations specified.</p>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>path_xml<span class="classifier">str</span></dt><dd><p>Path of the xml.gz files</p>
 </dd>
@@ -420,9 +476,56 @@ Note: the order of the informations in the list is important.</p>
 </dd>
 </dl>
 </section>
-<section id="id26">
-<h3>Returns<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
-<p>None</p>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>csv_list<span class="classifier">list</span></dt><dd><p>List of the csv files created</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="pcnet-utils">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">PCNet_utils</a><a class="headerlink" href="#pcnet-utils" title="Permalink to this heading"></a></h2>
+<p>This module contains few extra functions.</p>
+<span class="target" id="module-PCNet.PCNet_utils"></span><dl class="py function">
+<dt class="sig sig-object py" id="PCNet.PCNet_utils.is_empty_csv">
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_utils.</span></span><span class="sig-name descname"><span class="pre">is_empty_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_utils.is_empty_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Check if a csv file is empty</p>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>csv_file<span class="classifier">str</span></dt><dd><p>Path to the csv file</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h3>Returns<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>boolean</dt><dd><p>True if the csv is empty, False otherwise</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PCNet.PCNet_utils.validate_date">
+<span class="sig-prename descclassname"><span class="pre">PCNet.PCNet_utils.</span></span><span class="sig-name descname"><span class="pre">validate_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PCNet.PCNet_utils.validate_date" title="Permalink to this definition"></a></dt>
+<dd><p>Validate that a date string is in the expected format.</p>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>date_string<span class="classifier">str</span></dt><dd><p>The date string to validate.</p>
+</dd>
+</dl>
+</section>
+<section id="id34">
+<h3>Returns<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>bool</dt><dd><p>True if the date string is in the expected format, False otherwise.</p>
+</dd>
+</dl>
 </section>
 </dd></dl>
 

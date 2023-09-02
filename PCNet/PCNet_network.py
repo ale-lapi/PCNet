@@ -12,7 +12,7 @@ __author__ = "Alessandro Lapi"
 __email__ = "alessandro.lapi@studio.unibo.it"
 
 
-def csv_to_dataframe(path_csv, type_of_df, columns=['title', 
+def csv_to_dataframe(csv_list, type_of_df, columns=['title', 
                                                     'abstract', 
                                                     'date', 
                                                     'authors', 
@@ -44,17 +44,17 @@ def csv_to_dataframe(path_csv, type_of_df, columns=['title',
     df : pandas dataframe
         Dataframe with the links or the nodes
     """
-    csv_files = [file for file in os.listdir(path_csv) if file.startswith(type_of_df)]
     l = []
-
+    
+    csv_files = [file for file in csv_list if type_of_df in file]
     for file in tqdm(csv_files, desc='- Processing csv files ...'):
-
+        
         # Skip the file if it is empty
-        if utils.is_empty_csv(path_csv + file) == True:
+        if utils.is_empty_csv(file) == True:
             print(f"{file}  is empty")
             continue
 
-        df = pd.read_csv(path_csv + file, sep='\t', header=None, quoting=csv.QUOTE_NONE)
+        df = pd.read_csv(file, sep='\t', header=None, quoting=csv.QUOTE_NONE)
         l.append(df)
 
     if len(l) == 0:
@@ -181,7 +181,8 @@ def nodes_to_df(G):
     nodes = []
 
     for node in G.nodes(data=True):
-        nodes.append(node[1])
+        if node[1] != {}:
+            nodes.append(node[1])
 
     df = pd.DataFrame(nodes)
 

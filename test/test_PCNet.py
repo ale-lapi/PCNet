@@ -35,17 +35,17 @@ def parse_file():
 
 @pytest.fixture
 def csv_file():
-    pp.xml_parser(path_test, path_test)
-    return None
+    csv_list = pp.xml_parser(path_test, path_test)
+    return csv_list
 
 @pytest.fixture
 def df_nodes(csv_file):
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
+    df_nodes = pcn.csv_to_dataframe(csv_file, type_of_df='nodes')
     return df_nodes
 
 @pytest.fixture
 def df_links(csv_file):
-    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
+    df_links = pcn.csv_to_dataframe(csv_file, type_of_df='links')
     return df_links
 
 @pytest.fixture
@@ -201,8 +201,8 @@ def test_csv_to_dataframe(csv_file):
     Test the csv_to_dataframe function.
     It checks if the csv_to_dataframe function creates pandas dataframes of the right shape.
     """
-    df_links = pcn.csv_to_dataframe(path_test, type_of_df='links')
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
+    df_links = pcn.csv_to_dataframe(csv_file, type_of_df='links')
+    df_nodes = pcn.csv_to_dataframe(csv_file, type_of_df='nodes')
 
     assert type(df_links) == pd.core.frame.DataFrame
     assert type(df_nodes) == pd.core.frame.DataFrame
@@ -232,8 +232,8 @@ def test_mesh_selection():
     Test the mesh selection in the xml_parser function and csv_to_dataframe function.
     It checks if the xml_parser function creates the right files and if the keywords column contains the mesh_word.
     """
-    pp.xml_parser(path_test, path_test, MeSH=mesh)
-    df = pcn.csv_to_dataframe(path_test, type_of_df='nodes')
+    csv_list = pp.xml_parser(path_test, path_test, MeSH=mesh)
+    df = pcn.csv_to_dataframe(csv_list, type_of_df='nodes')
 
     assert os.path.exists(path_test + 'links_test.csv')
     assert os.path.exists(path_test + 'nodes_test.csv') 
@@ -245,8 +245,8 @@ def test_title_selecion():
     Test the title selection. It checks the shape of the dataframe and if the title column is in the dataframe.
     """
     title = ['title']
-    pp.xml_parser(path_test, path_test, informations=title)
-    title_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=title)
+    csv_list = pp.xml_parser(path_test, path_test, informations=title)
+    title_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=title)
 
     assert 'title' in title_df_nodes.columns
     assert title_df_nodes.shape[1] == 3
@@ -256,8 +256,8 @@ def test_no_title_selecion():
     Test the title not selection. It checks the shape of the dataframe and if the title column is not in the dataframe.
     """
     no_title = ['abstract', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=no_title)
-    no_title_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_title)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_title)
+    no_title_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_title)
 
     assert 'title' not in no_title_df_nodes.columns
     assert no_title_df_nodes.shape[1] == 7
@@ -267,8 +267,8 @@ def test_abstract_selecion():
     Test the abstract selection. It checks the shape of the dataframe and if the abstract column is in the dataframe.
     """
     abstract = ['abstract']
-    pp.xml_parser(path_test, path_test, informations=abstract)
-    abstract_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=abstract)
+    csv_list = pp.xml_parser(path_test, path_test, informations=abstract)
+    abstract_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=abstract)
 
     assert 'abstract' in abstract_df_nodes.columns
     assert abstract_df_nodes.shape[1] == 3
@@ -278,8 +278,8 @@ def test_no_abstract_selecion():
     Test the abstract not selection. It checks the shape of the dataframe and if the abstract column is not in the dataframe.
     """
     no_abstract = ['title', 'date', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=no_abstract)
-    no_abstract_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_abstract)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_abstract)
+    no_abstract_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_abstract)
 
     assert 'abstract' not in no_abstract_df_nodes.columns
     assert no_abstract_df_nodes.shape[1] == 7
@@ -289,8 +289,8 @@ def test_date_selecion():
     Test the date selection. It checks the shape of the dataframe and if the date column is in the dataframe.
     """
     date = ['date']
-    pp.xml_parser(path_test, path_test, informations=date)
-    date_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=date)
+    csv_list = pp.xml_parser(path_test, path_test, informations=date)
+    date_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=date)
 
     assert 'date' in date_df_nodes.columns
     assert date_df_nodes.shape[1] == 3
@@ -300,8 +300,8 @@ def test_no_date_selecion():
     Test the date not selection. It checks the shape of the dataframe and if the date column is not in the dataframe.
     """
     no_date = ['title', 'abstract', 'authors', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=no_date)
-    no_date_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_date)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_date)
+    no_date_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_date)
 
     assert 'date' not in no_date_df_nodes.columns
     assert no_date_df_nodes.shape[1] == 7
@@ -311,8 +311,8 @@ def test_authors_selecion():
     Test the authors selection. It checks the shape of the dataframe and if the authors column is in the dataframe.
     """
     authors = ['authors']
-    pp.xml_parser(path_test, path_test, informations=authors)
-    authors_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=authors)
+    csv_list = pp.xml_parser(path_test, path_test, informations=authors)
+    authors_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=authors)
 
     assert 'authors' in authors_df_nodes.columns
     assert authors_df_nodes.shape[1] == 3
@@ -322,8 +322,8 @@ def test_no_authors_selecion():
     Test the authors not selection. It checks the shape of the dataframe and if the authors column is not in the dataframe.
     """
     no_authors = ['title', 'abstract', 'date', 'journal', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=no_authors)
-    no_authors_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_authors)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_authors)
+    no_authors_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_authors)
 
     assert 'authors' not in no_authors_df_nodes.columns
     assert no_authors_df_nodes.shape[1] == 7
@@ -333,8 +333,8 @@ def test_journal_selecion():
     Test the journal selection. It checks the shape of the dataframe and if the journal column is in the dataframe.
     """
     journal = ['journal']
-    pp.xml_parser(path_test, path_test, informations=journal)
-    journal_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=journal)
+    csv_list = pp.xml_parser(path_test, path_test, informations=journal)
+    journal_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=journal)
 
     assert 'journal' in journal_df_nodes.columns
     assert journal_df_nodes.shape[1] == 3
@@ -344,8 +344,8 @@ def test_no_journal_selecion():
     Test the journal not selection. It checks the shape of the dataframe and if the journal column is not in the dataframe.
     """
     no_journal = ['title', 'abstract', 'date', 'authors', 'keywords']
-    pp.xml_parser(path_test, path_test, informations=no_journal)
-    no_journal_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_journal)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_journal)
+    no_journal_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_journal)
 
     assert 'journal' not in no_journal_df_nodes.columns
     assert no_journal_df_nodes.shape[1] == 7
@@ -355,8 +355,8 @@ def test_keywords_selecion():
     Test the keywords selection. It checks the shape of the dataframe and if the keywords column is in the dataframe.
     """
     keywords = ['keywords']
-    pp.xml_parser(path_test, path_test, informations=keywords)
-    keywords_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=keywords)
+    csv_list = pp.xml_parser(path_test, path_test, informations=keywords)
+    keywords_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=keywords)
 
     assert 'keywords' in keywords_df_nodes.columns
     assert keywords_df_nodes.shape[1] == 3
@@ -366,8 +366,8 @@ def test_no_keywords_selecion():
     Test the keywords not selection. It checks the shape of the dataframe and if the keywords column is not in the dataframe.
     """
     no_keywords = ['title', 'abstract', 'date', 'authors', 'journal']
-    pp.xml_parser(path_test, path_test, informations=no_keywords)
-    no_keywords_df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_keywords)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_keywords)
+    no_keywords_df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_keywords)
 
     assert 'keywords' not in no_keywords_df_nodes.columns
     assert no_keywords_df_nodes.shape[1] == 7
@@ -388,8 +388,8 @@ def test_no_selecion():
     Test the no selection. It checks the shape of the dataframe.
     """
     no_info = []
-    pp.xml_parser(path_test, path_test, informations=no_info)
-    df_nodes = pcn.csv_to_dataframe(path_test, type_of_df='nodes', columns=no_info)
+    csv_list = pp.xml_parser(path_test, path_test, informations=no_info)
+    df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=no_info)
 
     assert df_nodes.shape[1] == 2  
 

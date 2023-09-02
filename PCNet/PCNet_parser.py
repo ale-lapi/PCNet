@@ -319,7 +319,10 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
     The structure of the csv files is the following:
     - links: PMID of the article, PMID of the reference
     - nodes: PMID of the article, informations, references; where informations are the informations chosen by the user.
-
+    The csv files are saved in the path_csv folder.
+    If the MeSH parameter is specified, the parse is performed only over the articles with the MeSH specified.
+    If the informations parameter is specified, the parse is performed only over the informations specified.
+    
     Parameters
     ----------
     path_xml : str
@@ -339,9 +342,9 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
         
     Returns
     -------
-    None
+    csv_list : list
+        List of the csv files created
     """
-    
     def get_info(node, net_nodes, net_links, informations):
         """
         Get the information from the xml file.
@@ -391,7 +394,7 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
                 for ref in references.split(', '): 
                     net_links.write(f"{pmid}\t{ref}\n")
 
-
+    csv_list = []
 
     for file in tqdm([file for file in os.listdir(path_xml) if file.endswith('.gz')], desc='- Processing xml files ...'):
         
@@ -416,4 +419,8 @@ def xml_parser(path_xml, path_csv, MeSH="", informations = ['title',
                     else:
                         get_info(node, net_nodes, net_links, informations)
 
-                    
+        # Add the csv files to the list
+            csv_list.append(path_csv + "nodes_" + os.path.basename(file).split('.')[0] + ".csv")
+        csv_list.append(path_csv + "links_" + os.path.basename(file).split('.')[0] + ".csv")
+
+    return csv_list

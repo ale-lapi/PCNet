@@ -53,11 +53,11 @@ connected = config.getboolean('graph settings', 'connected')
 keep_unknown_nodes = config.getboolean('graph settings', 'keep_unknown_nodes')
 
 # PARSE
-pp.xml_parser(path_xml=pubmed_path, path_csv=csv_path, MeSH=mesh, informations=info)
+csv_list = pp.xml_parser(path_xml=pubmed_path, path_csv=csv_path, MeSH=mesh, informations=info)
 
 # DATAFRAMES
-df_links = pcn.csv_to_dataframe(path_csv=csv_path, type_of_df='links')
-df_nodes = pcn.csv_to_dataframe(path_csv=csv_path, type_of_df='nodes', columns=info)
+df_links = pcn.csv_to_dataframe(csv_list, type_of_df='links')
+df_nodes = pcn.csv_to_dataframe(csv_list, type_of_df='nodes', columns=info)
 
 # GRAPH
 graph = pcn.df_to_graph(df_links, df_nodes, connected_graph=connected, unknown_nodes=keep_unknown_nodes)
